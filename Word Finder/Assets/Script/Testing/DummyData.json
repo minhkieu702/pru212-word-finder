@@ -1,0 +1,29 @@
+{
+  "category": "cate1",
+  "board": {
+    "grid": {
+      "row": 10,
+      "column": 10
+    },
+    "word": {
+      "word1": {
+        "startRow": 2,
+        "startColumn": 3,
+        "endRow": 2,
+        "endColumn": 6
+      },
+      "word2": {
+        "startRow": 5,
+        "startColumn": 4,
+        "endRow": 8,
+        "endColumn": 4
+      },
+      "word3": {
+        "startRow": 7,
+        "startColumn": 8,
+        "endRow": 4,
+        "endColumn": 5
+      }
+    }
+  }
+}
