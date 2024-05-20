@@ -1,0 +1,170 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Self-learning\\WordFinderGame\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gridsquare.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|e:\\self-learning\\wordfindergame\\assets\\scripts\\wordsgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\wordsgrid.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\scriptableobjects\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59FBD04D-2327-0DB7-5321-783E02B29965}|Assembly-CSharp-Editor.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\editor\\alphabetdatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59FBD04D-2327-0DB7-5321-783E02B29965}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\alphabetdatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\scriptableobjects\\alphabetdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\alphabetdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\scriptableobjects\\boarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\boarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{59FBD04D-2327-0DB7-5321-783E02B29965}|Assembly-CSharp-Editor.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\editor\\boarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{59FBD04D-2327-0DB7-5321-783E02B29965}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\scripts\\editor\\boarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|E:\\Self-learning\\WordFinderGame\\assets\\scripts\\gameutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{30ED68F0-3A74-E013-80BD-91745721AE10}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\gameutility.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 6,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "WordsGrid.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\WordsGrid.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\WordsGrid.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\WordsGrid.cs",
+              "RelativeToolTip": "Assets\\Scripts\\WordsGrid.cs",
+              "ViewState": "AQIAACQAAAAAAAAAAAAowDQAAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T14:49:15.853Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "GridSquare.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\GridSquare.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GridSquare.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\GridSquare.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GridSquare.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T14:49:11.85Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "GameData.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\GameData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\GameData.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\GameData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\GameData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAqwAYAAAAVAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T09:00:04.56Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "AlphabetDataDrawer.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\Editor\\AlphabetDataDrawer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\AlphabetDataDrawer.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\Editor\\AlphabetDataDrawer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\AlphabetDataDrawer.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAACAAAAAzAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T08:14:08.284Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AlphabetData.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\AlphabetData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\AlphabetData.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\AlphabetData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\AlphabetData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABIAAAApAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-19T08:07:15.058Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "BoardDataDrawer.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\Editor\\BoardDataDrawer.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Editor\\BoardDataDrawer.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\Editor\\BoardDataDrawer.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Editor\\BoardDataDrawer.cs",
+              "ViewState": "AQIAAKAAAAAAAAAAAIBZwKUAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T00:53:11.858Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "GameUtility.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\GameUtility.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\GameUtility.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\GameUtility.cs",
+              "RelativeToolTip": "Assets\\Scripts\\GameUtility.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAAAAAAA",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAADtSURBVDhPYxgFCHDh4YX/sQtj/6u3qP9XblL\u002BHzk/8j9UiuHtx7f/VZpVwHxkNggwgohLjy79D18SzmAua86QZJbEwM/Bz3D91XWGCNMIRpAGo34jsGJkwMrMynCn9g5YP0PK0pT/3tO9/3/58gVuMjLA5wImEHH68WkGN3U3Bh4eHoiJJACwAb/\u002B/gI7CRuAeeH3398M8g3ycDayKxjC5oX9D54TjNX5IIDPC2Ann7x78n/E4ggGDw0PhgiDCLBrLj2/xJBhl0HQS3AFe67t\u002BT/lyBSGO2/uMHCxcTHYK9szdAd2kxwmIw8wMAAAESl0qwYO77cAAAAASUVORK5CYII=",
+              "WhenOpened": "2024-05-17T00:14:44.053Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "BoardData.cs",
+              "DocumentMoniker": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\BoardData.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\BoardData.cs",
+              "ToolTip": "E:\\Self-learning\\WordFinderGame\\Assets\\Scripts\\ScriptableObjects\\BoardData.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\BoardData.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAqAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-05-17T00:14:05.539Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
