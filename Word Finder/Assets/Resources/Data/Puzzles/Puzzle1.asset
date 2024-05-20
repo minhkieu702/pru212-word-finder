@@ -1,0 +1,143 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdb065698e0c62a46ac12d756bbf3456, type: 3}
+  m_Name: Puzzle1
+  m_EditorClassIdentifier: 
+  timeInSeconds: 0
+  Columns: 10
+  Rows: 10
+  Board:
+  - Size: 10
+    Row:
+    - L
+    - Q
+    - L
+    - K
+    - U
+    - W
+    - V
+    - I
+    - W
+    - Q
+  - Size: 10
+    Row:
+    - F
+    - K
+    - K
+    - E
+    - F
+    - T
+    - W
+    - W
+    - C
+    - I
+  - Size: 10
+    Row:
+    - H
+    - Y
+    - D
+    - L
+    - A
+    - U
+    - A
+    - B
+    - Q
+    - G
+  - Size: 10
+    Row:
+    - L
+    - M
+    - E
+    - F
+    - A
+    - D
+    - W
+    - V
+    - J
+    - E
+  - Size: 10
+    Row:
+    - Z
+    - A
+    - U
+    - D
+    - A
+    - X
+    - L
+    - G
+    - Q
+    - F
+  - Size: 10
+    Row:
+    - A
+    - U
+    - P
+    - S
+    - U
+    - S
+    - Q
+    - K
+    - O
+    - K
+  - Size: 10
+    Row:
+    - Y
+    - C
+    - W
+    - W
+    - Q
+    - B
+    - A
+    - O
+    - N
+    - X
+  - Size: 10
+    Row:
+    - S
+    - F
+    - M
+    - K
+    - O
+    - G
+    - Z
+    - Y
+    - T
+    - L
+  - Size: 10
+    Row:
+    - V
+    - M
+    - Q
+    - C
+    - F
+    - Z
+    - G
+    - Z
+    - F
+    - S
+  - Size: 10
+    Row:
+    - T
+    - U
+    - H
+    - N
+    - N
+    - H
+    - C
+    - C
+    - W
+    - X
+  SearchWords:
+  - Word: SUMMER
+  - Word: WINTER
+  - Word: WINTER
+  - Word: WINTER
