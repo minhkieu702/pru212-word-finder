@@ -27,6 +27,7 @@ public class LoginData : ScriptableObject
 
     [Header("UserData")]
     public UserObject _user;
+    public List<UserObject> users;
 
     async void Awake()
     {
@@ -83,7 +84,7 @@ public class LoginData : ScriptableObject
                 Username = User.DisplayName,
                 ScoreLevel = await LoadUserData()
             };
-
+            await LoadUserScoreBoard();
             return _user;
         }
         catch (Exception)
@@ -145,4 +146,49 @@ public class LoginData : ScriptableObject
         auth.SignOut();
         Debug.LogFormat("User logged out in successfully");
     }
+    public async Task<List<UserObject>> LoadUserScoreBoard()
+    {
+        try
+        {
+            //Get data from users
+            var DBTask = DBreference.Child("users").GetValueAsync();
+            await DBTask;
+            List<UserObject> userObjects = new List<UserObject>();
+            if (DBTask.Result.Value == null)
+            {
+                return null;
+            }
+            else
+            {
+                DataSnapshot userids = DBTask.Result;
+                foreach (DataSnapshot userid in userids.Children)
+                {
+                    UserObject user = new()
+                    {
+                        UserId = userid.Key,
+                        Username = userid.Child("username").Value.ToString(),
+                    };
+
+                    foreach (DataSnapshot level in userid.Children)
+                    {
+                        if (level.Key != "username")
+                        {
+                            string levelName = level.Key;
+                            int score = int.Parse(level.Child("score").Value.ToString());
+                            user.ScoreLevel.Add(levelName, score);
+                        }
+                    }
+                    userObjects.Add(user);
+                }
+            }
+            return userObjects;
+
+        }
+        catch (System.Exception)
+        {
+
+            throw;
+        }
+    }
+
 }
