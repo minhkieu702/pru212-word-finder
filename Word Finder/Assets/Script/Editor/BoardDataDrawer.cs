@@ -1,7 +1,10 @@
-using System.Text.RegularExpressions;
-using UnityEditor;
-using UnityEditorInternal;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEditorInternal;
+using UnityEditor;
+using System;
+using System.Text.RegularExpressions;
 
 [CustomEditor(typeof(BoardData), false)]
 [CanEditMultipleObjects]
@@ -10,12 +13,10 @@ public class BoardDataDrawer : Editor
 {
     private BoardData GameDataInstance => target as BoardData;
     private ReorderableList _dataList;
-
     private void OnEnable()
     {
-        InitalizeReordableList(ref _dataList, "SearchWords", "Searching Words");
+        InitializeReordableList(ref _dataList, "SearchWords", "Searching Words");
     }
-
     public override void OnInspectorGUI()
     {
         serializedObject.Update();
@@ -27,16 +28,15 @@ public class BoardDataDrawer : Editor
         {
             DrawBoardTable();
         }
-
         GUILayout.BeginHorizontal();
         ClearBoardButton();
-        FillUpWithRandomLettersButton();
+        FillUpWithRandomLetterButton();
 
         GUILayout.EndHorizontal();
 
+
         EditorGUILayout.Space();
         _dataList.DoLayoutList();
-
         serializedObject.ApplyModifiedProperties();
         if (GUI.changed)
         {
@@ -52,7 +52,8 @@ public class BoardDataDrawer : Editor
         GameDataInstance.Columns = EditorGUILayout.IntField("Columns", GameDataInstance.Columns);
         GameDataInstance.Rows = EditorGUILayout.IntField("Rows", GameDataInstance.Rows);
 
-        if ((GameDataInstance.Columns != columnsTemp || GameDataInstance.Rows != rowsTemp) && GameDataInstance.Columns > 0 && GameDataInstance.Rows > 0)
+        if ((GameDataInstance.Columns != columnsTemp || GameDataInstance.Rows != rowsTemp)
+            && GameDataInstance.Columns > 0 && GameDataInstance.Rows > 0)
         {
             GameDataInstance.CreateNewBoard();
         }
@@ -76,7 +77,6 @@ public class BoardDataDrawer : Editor
         rowStyle.alignment = TextAnchor.MiddleCenter;
 
         var textFieldStyle = new GUIStyle();
-
         textFieldStyle.normal.background = Texture2D.grayTexture;
         textFieldStyle.normal.textColor = Color.white;
         textFieldStyle.fontStyle = FontStyle.Bold;
@@ -91,7 +91,7 @@ public class BoardDataDrawer : Editor
                 if (x >= 0 && y >= 0)
                 {
                     EditorGUILayout.BeginHorizontal(rowStyle);
-                    var character = EditorGUILayout.TextArea(GameDataInstance.Board[x].Row[y], textFieldStyle);
+                    var character = (string)EditorGUILayout.TextArea(GameDataInstance.Board[x].Row[y], textFieldStyle);
                     if (GameDataInstance.Board[x].Row[y].Length > 1)
                     {
                         character = GameDataInstance.Board[x].Row[y].Substring(0, 1);
@@ -105,9 +105,10 @@ public class BoardDataDrawer : Editor
         EditorGUILayout.EndHorizontal();
     }
 
-    private void InitalizeReordableList(ref ReorderableList list, string propertyName, string listLabel)
+    private void InitializeReordableList(ref ReorderableList list, string propertyName, string listLabel)
     {
         list = new ReorderableList(serializedObject, serializedObject.FindProperty(propertyName), true, true, true, true);
+
         list.drawHeaderCallback = (Rect rect) =>
         {
             EditorGUI.LabelField(rect, listLabel);
@@ -132,20 +133,21 @@ public class BoardDataDrawer : Editor
             {
                 for (var j = 0; j < GameDataInstance.Rows; j++)
                 {
-                    var errourCounter = Regex.Matches(GameDataInstance.Board[i].Row[j], @"[a-z]").Count;
-                    if (errourCounter > 0)
+                    var errorCounter = Regex.Matches(GameDataInstance.Board[i].Row[j], @"[a-z]").Count;
+                    if (errorCounter > 0)
                     {
                         GameDataInstance.Board[i].Row[j] = GameDataInstance.Board[i].Row[j].ToUpper();
+
                     }
                 }
             }
-
-            foreach (var searchWord in GameDataInstance.SearchWords)
+            foreach (var seachWord in GameDataInstance.SearchWords)
             {
-                var errorCounter = Regex.Matches(searchWord.Word, @"[a-z]").Count;
+                var errorCounter = Regex.Matches(seachWord.Word, @"[a-z]").Count;
+
                 if (errorCounter > 0)
                 {
-                    searchWord.Word = searchWord.Word.ToUpper();
+                    seachWord.Word = seachWord.Word.ToUpper();
                 }
             }
         }
@@ -165,7 +167,7 @@ public class BoardDataDrawer : Editor
         }
     }
 
-    private void FillUpWithRandomLettersButton()
+    private void FillUpWithRandomLetterButton()
     {
         if (GUILayout.Button("Fill Up With Random"))
         {
@@ -173,13 +175,14 @@ public class BoardDataDrawer : Editor
             {
                 for (int j = 0; j < GameDataInstance.Rows; j++)
                 {
-                    int errorCounter = Regex.Matches(GameDataInstance.Board[i].Row[j].ToUpper(), @"[A-Z]").Count;
-                    string letters = "aqwsedrftghyujiopzxcvbnm".ToUpper();
-                    int index = Random.Range(0, letters.Length);
+                    int errorCounter = Regex.Matches(GameDataInstance.Board[i].Row[j], @"[a-zA-Z]").Count;
+                    string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+                    int index = UnityEngine.Random.Range(0, letters.Length);
                     if (errorCounter == 0)
                     {
                         GameDataInstance.Board[i].Row[j] = letters[index].ToString();
                     }
+
                 }
             }
         }
