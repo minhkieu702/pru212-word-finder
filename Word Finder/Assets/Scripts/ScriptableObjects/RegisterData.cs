@@ -49,6 +49,7 @@ public class RegisterData : ScriptableObject
 
     public async Task<string> Register(string _username, string _email, string _password, string _passwordVerify)
     {
+        InitializeFirebase();
         if (_username.Trim() == "" || _email.Trim() == "" || _password.Trim() == "" || _passwordVerify.Trim() == "")
         {
             return "Please input all fields.";

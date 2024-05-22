@@ -23,13 +23,18 @@ public class LoginDataDrawer : Editor
         var emailTemp = LoginDataInstance.emailLoginField;
         var passwordTemp = LoginDataInstance.passwordLoginField;
 
+        UserObject user = new();
         LoginDataInstance.emailLoginField = EditorGUILayout.TextField("Email Login Field", LoginDataInstance.emailLoginField);
         LoginDataInstance.passwordLoginField = EditorGUILayout.TextField("Password Login Field", LoginDataInstance.passwordLoginField);
         LoginDataInstance.warningLoginText = EditorGUILayout.TextField("Message", LoginDataInstance.warningLoginText);
+
         if (GUILayout.Button("Login"))
         {
-            string message = await LoginDataInstance.Login(emailTemp, passwordTemp);
-            LoginDataInstance.warningLoginText = message;
+            user = await LoginDataInstance.Login(emailTemp, passwordTemp);
+            if (user != null)
+            {
+                LoginDataInstance.warningLoginText = user.ToString();
+            }
         }
 
         if (GUILayout.Button("Logout"))
