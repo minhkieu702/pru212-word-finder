@@ -1,47 +1,67 @@
-###
-# Unity folders and files
-###
-[Aa]ssets/AssetStoreTools*
-[Bb]uilds/
-[Ll]ibrary/
-[Ll]ocal[Cc]ache/
-[Oo]bj/
-[Tt]emp/
-[Uu]nityGenerated/
-# file on crash reports
-sysinfo.txt
-# Unity3D generated meta files
-*.pidb.meta
+# Editor temporary files
+Temp/
+Library/
+*.meta
 
-###
-# VS/MD solution and project files
-###
-[Ee]xportedObj/
-*.booproj
-*.csproj
-*.sln
-*.suo
-*.svd
-*.unityproj
-*.user
-*.userprefs
-*.pidb
-.DS_Store
+# Packages
+Packages/
 
-###
-# OS generated
-###
+# Generated files by Unity
+Generated/
+
+# Asset bundles (optional)
+AssetBundles/
+
+# Firebase config (security reasons)
+GoogleService-Info.plist
+GoogleService-Info.json
+
+# Build artifacts
+Build/
+*.unitypackage
+
+# IDE specific files
+# (adjust based on your IDE)
+VisualStudio/
+MonoDevelop/
+
+# Cache directories
+[Bb]uild/[Ff]older/[Oo]utput/
+
+# OS specific temporary folders
 .DS_Store
-.DS_Store?
-._*
-.Spotlight-V100
-.Trashes
-Icon?
-ehthumbs.db
 Thumbs.db
-serviceAccountKey.json
-google-services.json
-google-services.json.meta
-google-services-desktop.json
-google-services-desktop.json.meta
 
+# OS specific trash/recycle bin folders
+*.Trash-1000*
+[Tt]rash/*
+
+# Common backup folders
+*.bak
+*.old
+
+# Visual Studio Code specific
+# (optional)
+.vscode/
+
+# UnityVS specific
+# (optional)
+UnityVS/
+
+# Rider specific
+# (optional)
+.idea/
+
+# Visual Studio specific
+# (optional)
+[Bb]in/[Oo]bj/
+
+# Visual Studio for Mac specific
+# (optional)
+[Dd]erivedData/
+
+# Unity Dependency Manager lock file
+Packages.lock
+
+# Auto generated test results
+TestResults/

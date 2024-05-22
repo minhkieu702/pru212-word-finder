@@ -15,7 +15,7 @@ D:/now_semester/PRU212/pru212-word-finder/Word Finder
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-52821
+51682
 Successfully changed project path to: D:/now_semester/PRU212/pru212-word-finder/Word Finder
 D:/now_semester/PRU212/pru212-word-finder/Word Finder
 [UnityMemory] Configuration Parameters - Can be set up in boot.config
@@ -49,12 +49,12 @@ D:/now_semester/PRU212/pru212-word-finder/Word Finder
     "memorysetup-temp-allocator-size-cloud-worker=32768"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [33260] Host "[IP] 192.168.1.5 [Port] 0 [Flags] 2 [Guid] 2624101491 [EditorId] 2624101491 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-67D74HQ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
+Player connection [30660] Host "[IP] 10.87.1.233 [Port] 0 [Flags] 2 [Guid] 2744675484 [EditorId] 2744675484 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-67D74HQ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined multi-casting on [225.0.0.222:54997]...
 
-Player connection [33260] Host "[IP] 192.168.1.5 [Port] 0 [Flags] 2 [Guid] 2624101491 [EditorId] 2624101491 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-67D74HQ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [30660] Host "[IP] 10.87.1.233 [Port] 0 [Flags] 2 [Guid] 2744675484 [EditorId] 2744675484 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-67D74HQ) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" joined alternative multi-casting on [225.0.0.222:34997]...
 
 [Physics::Module] Initialized MultithreadedJobDispatcher with 7 workers.
-Refreshing native plugins compatible for Editor in 58.57 ms, found 6 plugins.
+Refreshing native plugins compatible for Editor in 22.25 ms, found 7 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2022.3.28f1 (6bae5ce6b222)
 [Subsystems] Discovering subsystems at path D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/Resources/UnitySubsystems
@@ -62,57 +62,57 @@ Initialize engine version: 2022.3.28f1 (6bae5ce6b222)
 GfxDevice: creating device client; threaded=0; jobified=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: Intel(R) Iris(R) Xe Graphics (ID=0x9a49)
-    Vendor:   Intel
-    VRAM:     8059 MB
-    Driver:   31.0.101.4575
+    Renderer: NVIDIA GeForce MX350 (ID=0x1c94)
+    Vendor:   NVIDIA
+    VRAM:     1978 MB
+    Driver:   31.0.15.4659
 Initialize mono
 Mono path[0] = 'D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/Managed'
 Mono path[1] = 'D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56752
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56584
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/PlaybackEngines/WebGLSupport/UnityEditor.WebGL.Extensions.dll
 Register platform support module: D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/PlaybackEngines/AndroidPlayer/UnityEditor.Android.Extensions.dll
 Register platform support module: D:/Softwares/Unity Hub/2022.3.28f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.018095 seconds.
-- Loaded All Assemblies, in  1.325 seconds
+Registered in 0.004656 seconds.
+- Loaded All Assemblies, in  0.610 seconds
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
-Android Extension - Scanning For ADB Devices 926 ms
+Android Extension - Scanning For ADB Devices 329 ms
 Native extension for WebGL target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  2.288 seconds
-Domain Reload Profiling: 3614ms
-	BeginReloadAssembly (388ms)
+- Finished resetting the current domain, in  0.817 seconds
+Domain Reload Profiling: 1427ms
+	BeginReloadAssembly (208ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (2ms)
-	RebuildCommonClasses (131ms)
-	RebuildNativeTypeToScriptingClass (42ms)
-	initialDomainReloadingComplete (192ms)
-	LoadAllAssembliesAndSetupDomain (570ms)
-		LoadAssemblies (387ms)
+	RebuildCommonClasses (56ms)
+	RebuildNativeTypeToScriptingClass (20ms)
+	initialDomainReloadingComplete (69ms)
+	LoadAllAssembliesAndSetupDomain (257ms)
+		LoadAssemblies (208ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (565ms)
-			TypeCache.Refresh (560ms)
-				TypeCache.ScanAssembly (513ms)
-			ScanForSourceGeneratedMonoScriptInfo (2ms)
-			ResolveRequiredComponents (2ms)
-	FinalizeReload (2290ms)
+		AnalyzeDomain (253ms)
+			TypeCache.Refresh (251ms)
+				TypeCache.ScanAssembly (228ms)
+			ScanForSourceGeneratedMonoScriptInfo (0ms)
+			ResolveRequiredComponents (1ms)
+	FinalizeReload (818ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2054ms)
+		SetupLoadedEditorAssemblies (739ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (1332ms)
-			SetLoadedEditorAssemblies (17ms)
+			InitializePlatformSupportModulesInManaged (474ms)
+			SetLoadedEditorAssemblies (5ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (8ms)
-			ProcessInitializeOnLoadAttributes (528ms)
-			ProcessInitializeOnLoadMethodAttributes (170ms)
+			BeforeProcessingInitializeOnLoad (5ms)
+			ProcessInitializeOnLoadAttributes (178ms)
+			ProcessInitializeOnLoadMethodAttributes (77ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -120,13 +120,14 @@ Domain Reload Profiling: 3614ms
 ========================================================================
 Worker process is ready to serve import requests
 Begin MonoManager ReloadAssembly
+Assembly 'Assets/ExternalDependencyManager/Editor/1.2.179/Google.IOSResolver.dll' will not be loaded due to errors:
+Unable to resolve reference 'UnityEditor.iOS.Extensions.Xcode'. Is the assembly missing or incompatible with the current platform?
+Reference validation can be disabled in the Plugin Inspector.
 Assembly 'Assets/Firebase/Editor/Firebase.Editor.dll' will not be loaded due to errors:
 Unable to resolve reference 'UnityEditor.iOS.Extensions.Xcode'. Is the assembly missing or incompatible with the current platform?
 Reference validation can be disabled in the Plugin Inspector.
-Unable to resolve reference 'Google.IOSResolver'. Is the assembly missing or incompatible with the current platform?
-Reference validation can be disabled in the Plugin Inspector.
-- Loaded All Assemblies, in  2.335 seconds
-Refreshing native plugins compatible for Editor in 21.07 ms, found 6 plugins.
+- Loaded All Assemblies, in  1.074 seconds
+Refreshing native plugins compatible for Editor in 9.82 ms, found 7 plugins.
 Native extension for WindowsStandalone target not found
 Native extension for Android target not found
 Native extension for WebGL target not found
@@ -135,47 +136,47 @@ Package Manager log level set to [2]
 [Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  3.103 seconds
-Domain Reload Profiling: 5439ms
-	BeginReloadAssembly (391ms)
+- Finished resetting the current domain, in  1.009 seconds
+Domain Reload Profiling: 2083ms
+	BeginReloadAssembly (228ms)
 		ExecutionOrderSort (0ms)
-		DisableScriptedObjects (14ms)
+		DisableScriptedObjects (10ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (45ms)
-	RebuildCommonClasses (142ms)
-	RebuildNativeTypeToScriptingClass (38ms)
-	initialDomainReloadingComplete (136ms)
-	LoadAllAssembliesAndSetupDomain (1625ms)
-		LoadAssemblies (1123ms)
+		CreateAndSetChildDomain (47ms)
+	RebuildCommonClasses (42ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (68ms)
+	LoadAllAssembliesAndSetupDomain (724ms)
+		LoadAssemblies (557ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (759ms)
-			TypeCache.Refresh (633ms)
-				TypeCache.ScanAssembly (578ms)
-			ScanForSourceGeneratedMonoScriptInfo (96ms)
-			ResolveRequiredComponents (27ms)
-	FinalizeReload (3107ms)
+		AnalyzeDomain (281ms)
+			TypeCache.Refresh (239ms)
+				TypeCache.ScanAssembly (217ms)
+			ScanForSourceGeneratedMonoScriptInfo (35ms)
+			ResolveRequiredComponents (7ms)
+	FinalizeReload (1010ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (2154ms)
+		SetupLoadedEditorAssemblies (758ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (88ms)
-			SetLoadedEditorAssemblies (27ms)
+			InitializePlatformSupportModulesInManaged (30ms)
+			SetLoadedEditorAssemblies (8ms)
 			RefreshPlugins (0ms)
-			BeforeProcessingInitializeOnLoad (403ms)
-			ProcessInitializeOnLoadAttributes (1494ms)
-			ProcessInitializeOnLoadMethodAttributes (136ms)
-			AfterProcessingInitializeOnLoad (6ms)
-			EditorAssembliesLoaded (1ms)
+			BeforeProcessingInitializeOnLoad (125ms)
+			ProcessInitializeOnLoadAttributes (530ms)
+			ProcessInitializeOnLoadMethodAttributes (58ms)
+			AfterProcessingInitializeOnLoad (5ms)
+			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
-		AwakeInstancesAfterBackupRestoration (30ms)
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.12 seconds
-Refreshing native plugins compatible for Editor in 18.30 ms, found 6 plugins.
+		AwakeInstancesAfterBackupRestoration (11ms)
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.05 seconds
+Refreshing native plugins compatible for Editor in 9.14 ms, found 7 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 4083 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 94 unused Assets / (256.1 KB). Loaded Objects now: 4532.
-Memory consumption went from 154.4 MB to 154.1 MB.
-Total: 11.782300 ms (FindLiveObjects: 0.544600 ms CreateObjectMapping: 0.364400 ms MarkObjects: 10.227400 ms  DeleteObjects: 0.643100 ms)
+Unloading 4094 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 103 unused Assets / (260.9 KB). Loaded Objects now: 4535.
+Memory consumption went from 154.7 MB to 154.4 MB.
+Total: 5.697700 ms (FindLiveObjects: 0.365000 ms CreateObjectMapping: 0.355900 ms MarkObjects: 4.538200 ms  DeleteObjects: 0.436600 ms)
 
 AssetImportParameters requested are different than current active one (requested -> active):
   custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
@@ -192,57 +193,82 @@ AssetImportParameters requested are different than current active one (requested
   custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
 ========================================================================
 Received Import Request.
-  Time since last request: 96442.345367 seconds.
-  path: Assets/Resources/Data/Puzzles/New Board Data.asset
-  artifactKey: Guid(5b211f689e24b8e409afb0b991a9aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Resources/Data/Puzzles/New Board Data.asset using Guid(5b211f689e24b8e409afb0b991a9aafd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '644902ce8ce69fb4aab9a2a9cac6787d') in 0.040763 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 0.000047 seconds.
-  path: Assets/Plugins/iOS
-  artifactKey: Guid(81fdf753639e239498d637307973b420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Plugins/iOS using Guid(81fdf753639e239498d637307973b420) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '600b9f6112fe1c8768e4e48f024555ae') in 0.000724 seconds
+  Time since last request: 493831.326031 seconds.
+  path: Assets/Script/ScriptableObjects/UserObject.cs
+  artifactKey: Guid(c5a7fc56dd5c2b6478dc14e9c5ed93fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Script/ScriptableObjects/UserObject.cs using Guid(c5a7fc56dd5c2b6478dc14e9c5ed93fb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '273cf10d2568292c2988d00cf8c0614f') in 0.004447 seconds
 Number of updated asset objects reloaded before import = 0
 Number of asset objects unloaded after import = 0
 ========================================================================
-Received Import Request.
-  Time since last request: 26.136225 seconds.
-  path: Assets/Script/Editor/BoardDataDrawer.cs
-  artifactKey: Guid(55dbb281ddabefe42b77b1c7da99a428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/Editor/BoardDataDrawer.cs using Guid(55dbb281ddabefe42b77b1c7da99a428) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4261fd910fa2ca8d0564c36d99c28d3e') in 0.000874 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 378.411643 seconds.
-  path: Assets/Script/DummyData.cs
-  artifactKey: Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/DummyData.cs using Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '493f2df6f64f02ce3a3b5c536882afb3') in 0.001634 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 402.040038 seconds.
-  path: Assets/Script/DummyData.cs
-  artifactKey: Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/DummyData.cs using Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aba440294287c847212adc821191a2aa') in 0.003205 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
-========================================================================
-Received Import Request.
-  Time since last request: 196.688443 seconds.
-  path: Assets/Script/DummyData.json
-  artifactKey: Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/DummyData.json using Guid(fa021d26b5aa7a545bf2b7be8fbbd736) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7d23531a752212fa89bf2d1d1713a813') in 0.262643 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 1
-========================================================================
-Received Import Request.
-  Time since last request: 270.507701 seconds.
-  path: Assets/Script/ScriptableObjects/BoardData.cs
-  artifactKey: Guid(554103deaa3b9d8429c3c4482b675b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Script/ScriptableObjects/BoardData.cs using Guid(554103deaa3b9d8429c3c4482b675b36) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b2526471fa84ac6fd3d9080b68050b76') in 0.007622 seconds
-Number of updated asset objects reloaded before import = 0
-Number of asset objects unloaded after import = 0
+Received Prepare
+Begin MonoManager ReloadAssembly
+Assembly 'Assets/ExternalDependencyManager/Editor/1.2.179/Google.IOSResolver.dll' will not be loaded due to errors:
+Unable to resolve reference 'UnityEditor.iOS.Extensions.Xcode'. Is the assembly missing or incompatible with the current platform?
+Reference validation can be disabled in the Plugin Inspector.
+Assembly 'Assets/Firebase/Editor/Firebase.Editor.dll' will not be loaded due to errors:
+Unable to resolve reference 'UnityEditor.iOS.Extensions.Xcode'. Is the assembly missing or incompatible with the current platform?
+Reference validation can be disabled in the Plugin Inspector.
+- Loaded All Assemblies, in  0.818 seconds
+Refreshing native plugins compatible for Editor in 9.40 ms, found 7 plugins.
+Native extension for WindowsStandalone target not found
+Native extension for Android target not found
+Native extension for WebGL target not found
+[Package Manager] Server::EnsureServerProcessIsRunning -- launch failed, reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] UpmClient::Send -- Unable to send message (not connected to UPM process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  1.609 seconds
+Domain Reload Profiling: 2428ms
+	BeginReloadAssembly (259ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (28ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (64ms)
+	RebuildCommonClasses (64ms)
+	RebuildNativeTypeToScriptingClass (27ms)
+	initialDomainReloadingComplete (46ms)
+	LoadAllAssembliesAndSetupDomain (422ms)
+		LoadAssemblies (501ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (47ms)
+			TypeCache.Refresh (13ms)
+				TypeCache.ScanAssembly (0ms)
+			ScanForSourceGeneratedMonoScriptInfo (20ms)
+			ResolveRequiredComponents (11ms)
+	FinalizeReload (1610ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (952ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (41ms)
+			SetLoadedEditorAssemblies (10ms)
+			RefreshPlugins (0ms)
+			BeforeProcessingInitializeOnLoad (193ms)
+			ProcessInitializeOnLoadAttributes (635ms)
+			ProcessInitializeOnLoadMethodAttributes (69ms)
+			AfterProcessingInitializeOnLoad (4ms)
+			EditorAssembliesLoaded (1ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (26ms)
+Refreshing native plugins compatible for Editor in 8.24 ms, found 7 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 4074 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 75 unused Assets / (232.7 KB). Loaded Objects now: 4540.
+Memory consumption went from 149.3 MB to 149.0 MB.
+Total: 4.665500 ms (FindLiveObjects: 0.384600 ms CreateObjectMapping: 0.183900 ms MarkObjects: 3.773200 ms  DeleteObjects: 0.322100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+AssetImportParameters requested are different than current active one (requested -> active):
+  custom:container-demuxer-ogg: 62fdf1f143b41e24485cea50d1cbac27 -> 
+  custom:video-decoder-ogg-theora: a1e56fd34408186e4bbccfd4996cb3dc -> 
+  custom:framework-win-MediaFoundation: 216162199b28c13a410421893ffa2e32 -> 
+  custom:CustomObjectIndexerAttribute: 9a22284fe3817be447336de3de66b15e -> 
+  custom:container-demuxer-webm: 4f35f7cbe854078d1ac9338744f61a02 -> 
+  custom:container-muxer-webm: aa71ff27fc2769a1b78a27578f13a17b -> 
+  custom:video-decoder-webm-vp8: 9c59270c3fd7afecdb556c50c9e8de78 -> 
+  custom:SearchIndexIgnoredProperties: e643bd26f0fe6173181afceb89e7c659 -> 
+  custom:AudioImporter_EditorPlatform: d09bf68614088b80899f8185d706f6e7 -> 
+  custom:video-encoder-webm-vp8: eb34c28f22e8b96e1ab97ce403110664 -> 
+  custom:audio-decoder-ogg-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
+  custom:audio-encoder-webm-vorbis: bf7c407c2cedff20999df2af8eb42d56 -> 
