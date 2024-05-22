@@ -36,7 +36,7 @@ public class ScoreboardData : ScriptableObject
     }
     private void InitializeFirebase()
     {
-        Debug.Log("Setting up Firebase Auth");
+        Debug.Log("Setting up Firebase Database");
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
@@ -44,11 +44,11 @@ public class ScoreboardData : ScriptableObject
     /*
      create an object that have username, dictionary<Level, Score>
      */
-    public async Task<List<UserObject>> LoadUserScore()
+    public async Task<List<UserObject>> LoadUsersScoreBoard()
     {
         try
         {
-            InitializeFirebase();
+            InitializeFirebase() ;
             //Get data from users
             var DBTask = DBreference.Child("users").GetValueAsync();
             await DBTask;
@@ -68,8 +68,7 @@ public class ScoreboardData : ScriptableObject
                         Username = userid.Child("username").Value.ToString(),
                     };
 
-                    var levels = userids.Children;
-                    foreach (DataSnapshot level in levels)
+                    foreach (DataSnapshot level in userid.Children)
                     {
                         if (level.Key != "username")
                         {
@@ -77,6 +76,7 @@ public class ScoreboardData : ScriptableObject
                             int score = int.Parse(level.Child("score").Value.ToString());
                             user.ScoreLevel.Add(levelName, score);
                         }
+                        Debug.Log("Level");
                     }
                     userObjects.Add(user);
                 }
