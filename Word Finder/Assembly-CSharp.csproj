@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{30ED68F0-3A74-E013-80BD-91745721AE10}</ProjectGuid>
+    <ProjectGuid>{FC563866-F537-4FDF-4A98-266E9A620E79}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -62,6 +62,7 @@
   <ItemGroup>
     <Compile Include="Assets\Scripts\SettingsScene.cs" />
     <Compile Include="Assets\Scripts\AdManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\LoginData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\GameLevelData.cs" />
     <Compile Include="Assets\Scripts\WordsGrid.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\GameData.cs" />
@@ -73,6 +74,8 @@
     <Compile Include="Assets\Scripts\SoundToggleButton.cs" />
     <Compile Include="Assets\Scripts\WordChecker.cs" />
     <Compile Include="Assets\Scripts\UnlockLevelPopup.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ScoreboardData.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\RegisterData.cs" />
     <Compile Include="Assets\Scripts\GameOverPopup.cs" />
     <Compile Include="Assets\Scripts\GridSquare.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\AlphabetData.cs" />
@@ -82,6 +85,8 @@
     <Compile Include="Assets\Scripts\DataSaver.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\GameDataSelector.cs" />
+    <Compile Include="Assets\Script\ScriptableObjects\GameData.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\UserObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
@@ -1123,11 +1128,15 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="GoogleMobileAds.csproj">
-      <Project>{7A2C0C80-6125-23AA-A86F-00D2D275217A}</Project>
+      <Project>{F330E177-D6FF-33DA-0EAF-F9881F3F4D1E}</Project>
       <Name>GoogleMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Android.AppBundle.Editor.csproj">
+      <Project>{805AFCA9-2F36-E7C0-E536-BC5B82971CF0}</Project>
+      <Name>Google.Android.AppBundle.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.Editor.csproj">
-      <Project>{870A6C1B-ADB4-4919-5669-81F5CB317EB3}</Project>
+      <Project>{D295D84B-8B75-DFA9-FEB1-917FB74DD1CD}</Project>
       <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>

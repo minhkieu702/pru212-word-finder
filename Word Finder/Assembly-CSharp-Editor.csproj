@@ -10,7 +10,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{59FBD04D-2327-0DB7-5321-783E02B29965}</ProjectGuid>
+    <ProjectGuid>{A859939F-492D-0FF9-2F64-6C4EEC2F5E3B}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp-Editor</AssemblyName>
@@ -60,8 +60,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2022.3.20f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\Editor\BoardDataDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\BoardDataDrawer.cs" />
+    <Compile Include="Assets\Scripts\Editor\LoginDataDrawer.cs" />
+    <Compile Include="Assets\Script\Editor\AlphabetDataDrawer.cs" />
     <Compile Include="Assets\Scripts\Editor\AlphabetDataDrawer.cs" />
+    <Compile Include="Assets\Scripts\Editor\RegisterDataDrawer.cs" />
+    <Compile Include="Assets\Scripts\Editor\ScoreboardDataDrawer.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.PackageManagerResolver.dll" />
+    <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.179_manifest.txt" />
+    <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.IOSResolver.dll" />
+    <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.VersionHandlerImpl.dll" />
+    <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.JarResolver.dll" />
+    <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -428,6 +441,10 @@
       <HintPath>Library\PackageCache\com.unity.collections@1.2.4\Unity.Collections.LowLevel.ILSupport\Unity.Collections.LowLevel.ILSupport.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Google.PackageManagerResolver">
+      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.179\Google.PackageManagerResolver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\Unity.Plastic.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
@@ -436,8 +453,16 @@
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\unityplastic.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Google.IOSResolver">
+      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.179\Google.IOSResolver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.Plastic.Newtonsoft.Json">
       <HintPath>Library\PackageCache\com.unity.collab-proxy@2.2.0\Lib\Editor\PlasticSCM\Unity.Plastic.Newtonsoft.Json.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.VersionHandlerImpl">
+      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.179\Google.VersionHandlerImpl.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="log4netPlastic">
@@ -448,12 +473,20 @@
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\Dependencies\DotNetZip\Unity.VisualScripting.IonicZip.dll</HintPath>
       <Private>False</Private>
     </Reference>
+    <Reference Include="Google.JarResolver">
+      <HintPath>Assets\ExternalDependencyManager\Editor\1.2.179\Google.JarResolver.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
     <Reference Include="Unity.VisualScripting.Antlr3.Runtime">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Runtime\VisualScripting.Flow\Dependencies\NCalc\Unity.VisualScripting.Antlr3.Runtime.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="Unity.VisualScripting.TextureAssets">
       <HintPath>Library\PackageCache\com.unity.visualscripting@1.9.1\Editor\VisualScripting.Core\EditorAssetResources\Unity.VisualScripting.TextureAssets.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+    <Reference Include="Google.VersionHandler">
+      <HintPath>Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
@@ -1167,15 +1200,19 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp.csproj">
-      <Project>{30ED68F0-3A74-E013-80BD-91745721AE10}</Project>
+      <Project>{FC563866-F537-4FDF-4A98-266E9A620E79}</Project>
       <Name>Assembly-CSharp</Name>
     </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.csproj">
-      <Project>{7A2C0C80-6125-23AA-A86F-00D2D275217A}</Project>
+      <Project>{F330E177-D6FF-33DA-0EAF-F9881F3F4D1E}</Project>
       <Name>GoogleMobileAds</Name>
     </ProjectReference>
+    <ProjectReference Include="Google.Android.AppBundle.Editor.csproj">
+      <Project>{805AFCA9-2F36-E7C0-E536-BC5B82971CF0}</Project>
+      <Name>Google.Android.AppBundle.Editor</Name>
+    </ProjectReference>
     <ProjectReference Include="GoogleMobileAds.Editor.csproj">
-      <Project>{870A6C1B-ADB4-4919-5669-81F5CB317EB3}</Project>
+      <Project>{D295D84B-8B75-DFA9-FEB1-917FB74DD1CD}</Project>
       <Name>GoogleMobileAds.Editor</Name>
     </ProjectReference>
   </ItemGroup>
