@@ -9,6 +9,8 @@ public class BoardData : ScriptableObject
     [System.Serializable]
     public class SearchingWord
     {
+        [HideInInspector]
+        public bool Found = false;
         public string Word;
     }
     public float timeInSeconds;
@@ -16,6 +18,14 @@ public class BoardData : ScriptableObject
     public int Rows = 0;
     public BoardRow[] Board;
     public List<SearchingWord> SearchWords = new List<SearchingWord>();
+
+    public void ClearData()
+    {
+        foreach(var word in SearchWords)
+        {
+            word.Found = false;
+        }
+    }
 
     [System.Serializable]
     public class BoardRow
