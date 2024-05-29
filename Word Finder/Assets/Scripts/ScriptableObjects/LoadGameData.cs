@@ -65,7 +65,7 @@ public class LoadGameData : ScriptableObject
                 if (snapshot.Key == gameid)//secondlayer
                 {
                     var board = snapshot.GetRawJsonValue();//inside secondlayer
-                    boardObject = new BoardObject(board);
+                    //boardObject = new BoardObject(board);
                 }
             }
             return boardObject;
