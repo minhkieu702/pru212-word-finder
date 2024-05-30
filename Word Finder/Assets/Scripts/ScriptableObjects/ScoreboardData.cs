@@ -48,7 +48,6 @@ public class ScoreboardData : ScriptableObject
     {
         try
         {
-            InitializeFirebase() ;
             //Get data from users
             var DBTask = DBreference.Child("users").GetValueAsync();
             await DBTask;

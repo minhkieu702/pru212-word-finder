@@ -11,16 +11,16 @@ using UnityEngine;
 [Serializable]
 public class LoadGameDataDrawer : Editor
 {
-    private LoadGameData DataGameFromFirebaseInstance => target as LoadGameData;
+    private LoadGameData DataGameInstance => target as LoadGameData;
 
     public async override void OnInspectorGUI()
     {
-        await LoadData();
+        await LoadDataAsync();
     }
 
-    private async Task LoadData()
+    private async Task LoadDataAsync()
     {
-        var board = await DataGameFromFirebaseInstance.GetGameData("game1");
-        Debug.Log(board.Row);
+        BoardObject boardObject = await DataGameInstance.GetGameData("game1");
     }
+
 }
