@@ -1,33 +1,31 @@
 using Firebase.Auth;
 using Firebase.Database;
 using Firebase;
-using System.Collections;
 using System.Collections.Generic;
-using UnityEngine;
 using System.Threading.Tasks;
+using UnityEngine;
 using System;
 
 [SerializeField]
 [CreateAssetMenu]
 public class LoadGameData : ScriptableObject
 {
-    //Firebase variables
+    // Firebase variables
     [Header("Firebase")]
     public DependencyStatus dependencyStatus;
     public DatabaseReference DBreference;
-    
+
     [Header("GameData")]
-    public BoardObject BoardObject;
+    public BoardObject boardObject;
 
     async void Awake()
     {
-        //Check that all of the necessary dependencies for Firebase are present on the system
+        // Initialize Firebase
         await FirebaseApp.CheckAndFixDependenciesAsync().ContinueWith(task =>
         {
             dependencyStatus = task.Result;
             if (dependencyStatus == DependencyStatus.Available)
             {
-                //If they are avalible Initialize Firebase
                 InitializeFirebase();
             }
             else
@@ -36,10 +34,10 @@ public class LoadGameData : ScriptableObject
             }
         });
     }
+
     private void InitializeFirebase()
     {
-        Debug.Log("Setting up Firebase Auth");
-        //Set the authentication instance object
+        Debug.Log("Setting up Firebase Database");
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
@@ -47,48 +45,96 @@ public class LoadGameData : ScriptableObject
     {
         try
         {
-            InitializeFirebase();
-            var DbTask = DBreference.Child("game").GetValueAsync();//firstlayer
+            var DbTask = DBreference.Child("game").GetValueAsync();
             await DbTask;
 
             if (DbTask.Result.Value == null)
             {
                 Debug.LogError("No data about game");
-                return null;
+                return boardObject;
             }
-            List<WordObject> wordObjects = new List<WordObject>();
-            BoardObject boardObject = new BoardObject();
+
             DataSnapshot dataSnapshot = DbTask.Result;
             foreach (var snapshot in dataSnapshot.Children)
             {
-                //first layer
-                if (snapshot.Key == gameid)//secondlayer
+                if (snapshot.Key == gameid)
                 {
-                    var board = snapshot.GetRawJsonValue();//inside secondlayer
-                    //boardObject = new BoardObject(board);
+                    boardObject = CreateBoard(snapshot);
+                    break; // Exit the loop once the desired game data is found
                 }
             }
             return boardObject;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            throw;
+            Debug.Log(ex.Message);
+            return boardObject;
         }
     }
 
-    public void CreateBoard(IEnumerable<DataSnapshot> board, ref BoardObject boardObject)
+    public BoardObject CreateBoard(DataSnapshot snapshot)
     {
-        foreach (var item in board)
+        var boardObject = new BoardObject();
+        List<WordObject> words = new List<WordObject>();
+
+        foreach (var item in snapshot.Children)
         {
-            if (item.Key == "grid")//thirdlayer
+            switch (item.Key)
             {
-                
+                case "category":
+                    boardObject.Category = item.Value.ToString();
+                    break;
+                case "board":
+                    var board = item.Value as Dictionary<string, object>;
+
+                    if (board.ContainsKey("grid"))
+                    {
+                        var grid = board["grid"] as Dictionary<string, object>;
+                        if (grid.ContainsKey("column"))
+                        {
+                            boardObject.Column = int.Parse(grid["column"].ToString());
+                        }
+                        if (grid.ContainsKey("row"))
+                        {
+                            boardObject.Row = int.Parse(grid["row"].ToString());
+                        }
+                    }
+
+                    if (board.ContainsKey("word"))
+                    {
+                        var wordData = board["word"] as Dictionary<string, object>;
+                        foreach (var wordEntry in wordData)
+                        {
+                            string wordKey = wordEntry.Key;
+                            var wordValue = wordEntry.Value as Dictionary<string, object>;
+
+                            var word = new WordObject();
+                            word.Word = wordKey;
+
+                            if (wordValue.ContainsKey("endColumn"))
+                            {
+                                word.endColumn = int.Parse(wordValue["endColumn"].ToString());
+                            }
+                            if (wordValue.ContainsKey("endRow"))
+                            {
+                                word.endRow = int.Parse(wordValue["endRow"].ToString());
+                            }
+                            if (wordValue.ContainsKey("startColumn"))
+                            {
+                                word.startColumn = int.Parse(wordValue["startColumn"].ToString());
+                            }
+                            if (wordValue.ContainsKey("startRow"))
+                            {
+                                word.startRow = int.Parse(wordValue["startRow"].ToString());
+                            }
+
+                            words.Add(word);
+                        }
+                    }
+                    break;
             }
         }
-    }
-
-    public void GetBoard()
-    {
-
+        boardObject.Words = words;
+        return boardObject;
     }
 }
