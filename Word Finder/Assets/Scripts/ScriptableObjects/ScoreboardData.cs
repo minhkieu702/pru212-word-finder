@@ -3,6 +3,7 @@ using Firebase.Auth;
 using Firebase.Database;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using UnityEngine;
 
@@ -37,7 +38,10 @@ public class ScoreboardData : ScriptableObject
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Database");
-        DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+        if (DBreference == null)
+        {
+            DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+        }
     }
 
     //List<UserID, UserObject>
@@ -48,45 +52,42 @@ public class ScoreboardData : ScriptableObject
     {
         try
         {
+            InitializeFirebase();
             //Get data from users
-            var DBTask = DBreference.Child("users").GetValueAsync();
-            await DBTask;
+            var DBTask = await DBreference.Child("users").GetValueAsync();
             List<UserObject> userObjects = new List<UserObject>();
-            if (DBTask.Result.Value == null)
+            if (DBTask.Value == null)
             {
                 return null;
             }
-            else
+            
+            userObjects = DBTask.Children.Select(userid =>
             {
-                DataSnapshot userids = DBTask.Result;
-                foreach (DataSnapshot userid in userids.Children)
+                return new UserObject
                 {
-                    UserObject user = new()
-                    {
-                        UserId = userid.Key,
-                        Username = userid.Child("username").Value.ToString(),
-                    };
+                    UserId = userid.Key,
 
-                    foreach (DataSnapshot level in userid.Children)
-                    {
-                        if (level.Key != "username")
+                    Username = userid.Child("username").Value.ToString(),
+
+                    CategoryScore = userid.Children
+                    .Where(category => category.Key != "username")
+                    .ToDictionary(
+                        category => category.Key,
+                        category => new UserScoreObject
                         {
-                            string levelName = level.Key;
-                            int score = int.Parse(level.Child("score").Value.ToString());
-                            user.ScoreLevel.Add(levelName, score);
-                        }
-                        Debug.Log("Level");
-                    }
-                    userObjects.Add(user);
-                }
-            }
+                            LevelScore = category.Children.ToDictionary(
+                                item => item.Key,
+                                item => double.Parse(item.Child("score").Value.ToString())),
+                            ScoreOfCategory = 0
+                        })
+                };
+            }).ToList();
             return userObjects;
-
         }
-        catch (System.Exception)
+        catch (System.Exception ex)
         {
 
-            throw;
+            throw new System.Exception(ex.Message);
         }
     }
 }

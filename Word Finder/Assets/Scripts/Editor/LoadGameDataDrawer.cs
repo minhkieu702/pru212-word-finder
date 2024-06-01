@@ -20,7 +20,7 @@ public class LoadGameDataDrawer : Editor
 
     private async Task LoadDataAsync()
     {
-        BoardObject boardObject = await DataGameInstance.GetGameData("game1");
+        await DataGameInstance.GetGameData("game1");
     }
 
 }

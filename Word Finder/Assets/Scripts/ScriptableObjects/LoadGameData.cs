@@ -16,7 +16,7 @@ public class LoadGameData : ScriptableObject
     public DatabaseReference DBreference;
 
     [Header("GameData")]
-    public BoardObject boardObject;
+    public List<LevelObject> boardObjects;
 
     async void Awake()
     {
@@ -41,7 +41,7 @@ public class LoadGameData : ScriptableObject
         DBreference = FirebaseDatabase.DefaultInstance.RootReference;
     }
 
-    public async Task<BoardObject> GetGameData(string gameid)
+    public async Task<List<LevelObject>> GetGameData(string gameid)
     {
         try
         {
@@ -51,35 +51,36 @@ public class LoadGameData : ScriptableObject
             if (DbTask.Result.Value == null)
             {
                 Debug.LogError("No data about game");
-                return boardObject;
+                return boardObjects;
             }
-
+            List< LevelObject> boardObject = null;
             DataSnapshot dataSnapshot = DbTask.Result;
-            foreach (var snapshot in dataSnapshot.Children)
+            foreach (var category in dataSnapshot.Children)
             {
-                if (snapshot.Key == gameid)
+                if (category.Key == gameid)
                 {
-                    boardObject = CreateBoard(snapshot);
+                    //boardObject = CreateBoard(category);
                     break; // Exit the loop once the desired game data is found
                 }
+
             }
             return boardObject;
         }
         catch (Exception ex)
         {
             Debug.Log(ex.Message);
-            return boardObject;
+            return null;
         }
     }
 
-    public BoardObject CreateBoard(DataSnapshot snapshot)
+    public LevelObject CreateBoard(DataSnapshot snapshot)
     {
-        var boardObject = new BoardObject();
+        var boardObject = new LevelObject();
         List<WordObject> words = new List<WordObject>();
 
         foreach (var item in snapshot.Children)
         {
-            switch (item.Key)
+            /*switch (item.Key)
             {
                 case "category":
                     boardObject.Category = item.Value.ToString();
@@ -132,7 +133,7 @@ public class LoadGameData : ScriptableObject
                         }
                     }
                     break;
-            }
+            }*/
         }
         boardObject.Words = words;
         return boardObject;
