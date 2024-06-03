@@ -478,3 +478,4 @@ FodyWeavers.xsd
 # End of https://www.toptal.com/developers/gitignore/api/unity,visualstudio,firebase
 Word Finder/Assets/Editor Default Resources/Firebase/fb_analytics.png
 Word Finder/Assets/Editor Default Resources/Firebase/fb_auth.png
+Word Finder/Library/PackageCache/com.unity.2d.animation@9.1.0/Editor/Assets/EditorIcons/Dark/d_Sprite_Mode@4x.png

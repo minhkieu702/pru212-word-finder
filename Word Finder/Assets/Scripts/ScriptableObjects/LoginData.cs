@@ -28,7 +28,12 @@ public class LoginData : ScriptableObject
 
     [Header("UserData")]
     public UserObject _user;
-    public List<UserObject> users;
+
+    [Header("Scoreboard")]
+    public List<UserObject> scoreboard;
+
+    [Header("GameData")]
+    public Dictionary<string, List<LevelObject>> gameData = new();
 
     async void Awake()
     {
@@ -77,12 +82,12 @@ public class LoginData : ScriptableObject
             Debug.LogFormat($"User signed in successfully: {User.DisplayName} ({User.Email})");
             warningLoginText = "Logged In";
 
-            _user = new()
-            {
-                UserId = User.UserId,
-                Username = User.DisplayName,
-                CategoryScore = await LoadUserData()
-            };
+            gameData = await LoadGameData();
+
+            scoreboard = await LoadScoreBoard();
+
+            _user = LoadUserData(scoreboard);
+
             return _user;
         }
         catch (Exception)
@@ -96,54 +101,78 @@ public class LoginData : ScriptableObject
         }
     }
 
-    private async Task InitialUserInfoToDatabase()
+    private UserObject LoadUserData(List<UserObject> scoreboard)
+    {
+        try
+        {
+            var user = scoreboard.FirstOrDefault(user => user.UserId == User.UserId);
+            if (user == null)
+            {
+                InitialUserInfoToDatabase();
+                return new UserObject
+                {
+                    CategoryScore = new Dictionary<string, UserScoreObject>
+                    {
+                        {
+                            "cate1",
+                            new UserScoreObject { LevelScore = new Dictionary<string, double> { { "1", 0} } }
+                        }
+                    },
+                    UserId = User.UserId,
+                    Username = User.DisplayName
+                };
+            }
+            return user;
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
+    private async void InitialUserInfoToDatabase()
     {
         Task usernameTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(User.DisplayName);
         Task scoreTask = DBreference.Child("users").Child(User.UserId).Child("cate1").Child("1").Child("score").SetValueAsync(0);
         await Task.WhenAll(usernameTask, scoreTask);
     }
 
-    private async Task<Dictionary<string, UserScoreObject>> LoadUserData()
+    public async Task<List<UserObject>> LoadScoreBoard()
     {
         try
         {
-            var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
-            await DBTask;
-            if (DBTask.Result.Value == null)
+            InitializeFirebase();
+            var dbTask = await DBreference.Child("users").GetValueAsync();
+            if (dbTask.Value == null)
             {
-                await InitialUserInfoToDatabase();
-                return new Dictionary<string, UserScoreObject>
-                {
-                    {
-                        "cate1", new UserScoreObject()
+                return null;
+            }
+
+            var userObjects = dbTask.Children.Select(userid => new UserObject
+            {
+                UserId = userid.Key,
+                Username = userid.Child("username").Value.ToString(),
+                CategoryScore = userid.Children
+                    .Where(category => category.Key != "username")
+                    .ToDictionary(
+                        category => category.Key,
+                        category => new UserScoreObject
                         {
-                            LevelScore = new Dictionary<string, double>
-                            {
-                                {
-                                    "1", 0
-                                }
-                            },
+                            LevelScore = category.Children.ToDictionary(
+                                item => item.Key,
+                                item => double.Parse(item.Child("score").Value.ToString())
+                            ),
                             ScoreOfCategory = 0
                         }
-                    }
-                };
-            }
-            return DBTask.Result.Children
-                .Where(cate => cate.Key != "username")
-                .ToDictionary(cate => cate.Key,
-                    cate => new UserScoreObject
-                    {
-                        ScoreOfCategory = 0,
-                        LevelScore = cate.Children.ToDictionary(
-                        level => level.Key,
-                        level => double.Parse(level.Child("score").Value.ToString())
-                )
-                    });
+                    )
+            }).ToList();
+
+            return userObjects;
         }
-        catch (Exception)
+        catch (Exception ex)
         {
-            warningLoginText = "Failed";
-            return null;
+            throw new Exception($"Failed to load scoreboard: {ex.Message}");
         }
     }
 
@@ -152,4 +181,42 @@ public class LoginData : ScriptableObject
         auth.SignOut();
         Debug.LogFormat("User logged out in successfully");
     }
+
+    public async Task<Dictionary<string, List<LevelObject>>> LoadGameData()
+    {
+        try
+        {
+            var DBTask = await DBreference.Child("game").GetValueAsync();
+            if (DBTask.Value == null)
+            {
+                return null;
+            }
+            return DBTask.Children.ToDictionary(
+                cate => cate.Key,
+                cate => cate.Children.Select(
+                    level => new LevelObject
+                    {
+                        Level = level.Key,
+                        Column = int.Parse(level.Child("grid").Child("column").Value.ToString()),
+                        Row = int.Parse(level.Child("grid").Child("row").Value.ToString()),
+                        Words = level.Child("word").Children.Select(
+                            word => new WordObject
+                            {
+                                Word = word.Key,
+                                endColumn = int.Parse(word.Child("endColumn").Value.ToString()),
+                                startColumn = int.Parse(word.Child("startColumn").Value.ToString()),
+                                endRow = int.Parse(word.Child("endRow").Value.ToString()),
+                                startRow = int.Parse(word.Child("startRow").Value.ToString()),
+                            }
+                            ).ToList()
+                    }
+            ).ToList());
+        }
+        catch (Exception)
+        {
+
+            throw;
+        }
+    }
+
 }

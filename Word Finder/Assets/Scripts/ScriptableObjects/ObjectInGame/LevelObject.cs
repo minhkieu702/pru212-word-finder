@@ -8,5 +8,5 @@ public class LevelObject
     public string Level { get; set; }
     public int Row { get; set; }
     public int Column { get; set; }
-    public List<WordObject> Words { get; set; } = new List<WordObject>();
+    public List<WordObject> Words { get; set; }
 }
