@@ -30,10 +30,10 @@ public class LoginData : ScriptableObject
     public UserObject _user;
 
     [Header("Scoreboard")]
-    public List<UserObject> scoreboard;
+    public List<UserObject> _scoreboard;
 
     [Header("GameData")]
-    public Dictionary<string, List<LevelObject>> gameData = new();
+    public Dictionary<string, List<LevelObject>> _gameData = new();
 
     async void Awake()
     {
@@ -82,11 +82,11 @@ public class LoginData : ScriptableObject
             Debug.LogFormat($"User signed in successfully: {User.DisplayName} ({User.Email})");
             warningLoginText = "Logged In";
 
-            gameData = await LoadGameData();
+            _gameData = await LoadGameData();
 
-            scoreboard = await LoadScoreBoard();
+            _scoreboard = await LoadScoreBoard();
 
-            _user = LoadUserData(scoreboard);
+            _user = LoadUserData(_scoreboard);
 
             return _user;
         }
@@ -114,7 +114,7 @@ public class LoginData : ScriptableObject
                     CategoryScore = new Dictionary<string, UserScoreObject>
                     {
                         {
-                            "cate1",
+                            _gameData.Keys.First(),
                             new UserScoreObject { LevelScore = new Dictionary<string, double> { { "1", 0} } }
                         }
                     },
@@ -134,7 +134,7 @@ public class LoginData : ScriptableObject
     private async void InitialUserInfoToDatabase()
     {
         Task usernameTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(User.DisplayName);
-        Task scoreTask = DBreference.Child("users").Child(User.UserId).Child("cate1").Child("1").Child("score").SetValueAsync(0);
+        Task scoreTask = DBreference.Child("users").Child(User.UserId).Child(_gameData.Keys.First()).Child("1").Child("score").SetValueAsync(0);
         await Task.WhenAll(usernameTask, scoreTask);
     }
 
