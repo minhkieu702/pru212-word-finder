@@ -165,7 +165,8 @@ public class LoginData : ScriptableObject
                             ),
                             ScoreOfCategory = 0
                         }
-                    )
+                    ),
+                Score = 0
             }).ToList();
 
             return userObjects;
