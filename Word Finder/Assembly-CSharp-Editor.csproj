@@ -71,13 +71,7 @@
     <None Include="Assets\ExternalDependencyManager\Editor\external-dependency-manager_version-1.2.179_manifest.txt" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.IOSResolver.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.VersionHandlerImpl.dll" />
-    <None Include="Assets\Firebase\Editor\FirebaseDatabase_version-12.0.0_manifest.txt" />
     <None Include="Assets\ExternalDependencyManager\Editor\1.2.179\Google.JarResolver.dll" />
-    <None Include="Assets\Firebase\Editor\AuthDependencies.xml" />
-    <None Include="Assets\Firebase\Editor\AppDependencies.xml" />
-    <None Include="Assets\Firebase\Editor\FirebaseAuth_version-12.0.0_manifest.txt" />
-    <None Include="Assets\Firebase\Editor\DatabaseDependencies.xml" />
-    <None Include="Assets\Firebase\Editor\Firebase.Editor.dll" />
     <None Include="Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll" />
   </ItemGroup>
   <ItemGroup>
@@ -491,34 +485,6 @@
     </Reference>
     <Reference Include="Google.VersionHandler">
       <HintPath>Assets\ExternalDependencyManager\Editor\Google.VersionHandler.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.App">
-      <HintPath>Assets\Firebase\Plugins\Firebase.App.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.TaskExtension">
-      <HintPath>Assets\Firebase\Plugins\Firebase.TaskExtension.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Editor">
-      <HintPath>Assets\Firebase\Editor\Firebase.Editor.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Google.MiniJson">
-      <HintPath>Assets\Firebase\Plugins\Google.MiniJson.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Auth">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Auth.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Platform">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Platform.dll</HintPath>
-      <Private>False</Private>
-    </Reference>
-    <Reference Include="Firebase.Database">
-      <HintPath>Assets\Firebase\Plugins\Firebase.Database.dll</HintPath>
       <Private>False</Private>
     </Reference>
     <Reference Include="nunit.framework">
