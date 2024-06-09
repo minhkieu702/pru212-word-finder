@@ -74,6 +74,7 @@
     <Compile Include="Assets\Scripts\SoundToggleButton.cs" />
     <Compile Include="Assets\Scripts\WordChecker.cs" />
     <Compile Include="Assets\Scripts\UnlockLevelPopup.cs" />
+    <Compile Include="Assets\Scripts\HighScoreTable.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ScoreboardData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\RegisterData.cs" />
     <Compile Include="Assets\Scripts\GameOverPopup.cs" />
@@ -85,7 +86,6 @@
     <Compile Include="Assets\Scripts\DataSaver.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\GameDataSelector.cs" />
-    <Compile Include="Assets\Script\ScriptableObjects\GameData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\UserObject.cs" />
   </ItemGroup>
   <ItemGroup>
