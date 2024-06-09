@@ -14,17 +14,24 @@ public class BoardDataEditorUI : MonoBehaviour
     public TMP_InputField columnsInput;
     public TMP_InputField rowsInput;
     public TMP_InputField timeInput;
+    public TMP_InputField newWordInput;
     public GameObject cellPrefab;
+    public GameObject wordPrefab;
+    public Transform wordsContainer;
     public Button clearBoardButton;
     public Button fillRandomButton;
     public Button saveButton;
     public Button loadButton;
     // public Button convertToUpperButton;
+    public TMP_InputField fileNameInput;
+    public Button addWordButton;
     public Button deleteButton;
 
     private List<List<GridCell>> boardCells;
+    private List<GameObject> wordItems;
     public float cellOffset = 0.0f;
     public float topPosition;
+    public string fileName;
 
     private void Awake()
     {
@@ -33,21 +40,32 @@ public class BoardDataEditorUI : MonoBehaviour
 
     void Start()
     {
+        fileName = "NewBoardData";
+        fileNameInput.text = "NewBoardData";
         clearBoardButton.onClick.AddListener(ClearBoard);
         fillRandomButton.onClick.AddListener(FillBoardWithRandom);
         saveButton.onClick.AddListener(SaveBoardData);
         loadButton.onClick.AddListener(LoadBoardData);
         // convertToUpperButton.onClick.AddListener(ConvertBoardToUpper);
         deleteButton.onClick.AddListener(DeleteBoardData);
+        addWordButton.onClick.AddListener(AddWord);
 
         columnsInput.onEndEdit.AddListener(delegate { UpdateBoardDimensions(); });
         rowsInput.onEndEdit.AddListener(delegate { UpdateBoardDimensions(); });
         timeInput.onEndEdit.AddListener(delegate { UpdateGameTime(); });
+        fileNameInput.onEndEdit.AddListener(delegate { UpdateFileName(); });
 
         columnsInput.text = gameDataInstance.Columns.ToString();
         rowsInput.text = gameDataInstance.Rows.ToString();
         timeInput.text = gameDataInstance.timeInSeconds.ToString();
+        LoadBoardData();
         UpdateBoardUI();
+        UpdateWordsUI();
+    }
+
+    private void UpdateFileName()
+    {
+        fileName = fileNameInput.text;
     }
 
     private void UpdateGameTime()
@@ -149,9 +167,9 @@ public class BoardDataEditorUI : MonoBehaviour
         if (boardCells.Count == 0 || boardCells[0].Count == 0) return;
 
         var cellRectTransform = boardCells[0][0].GetComponent<RectTransform>();
+        var cellSize = new Vector2(cellRectTransform.rect.width, cellRectTransform.rect.height);
         //Debug.Log("Cell RectTransform / Size: " + cellRectTransform.rect.width + ", " + cellRectTransform.rect.height);
         //Debug.Log("Cell LocalScale: " + cellRectTransform.localScale.x + ", " + cellRectTransform.localScale.y);
-        var cellSize = new Vector2(cellRectTransform.rect.width, cellRectTransform.rect.height);
 
         Vector2 offset = new Vector2
         {
@@ -244,9 +262,45 @@ public class BoardDataEditorUI : MonoBehaviour
     }
     */
 
+    private void AddWord()
+    {
+        string newWord = newWordInput.text.Trim();
+        if (!string.IsNullOrEmpty(newWord))
+        {
+            gameDataInstance.SearchWords.Add(new BoardData.SearchingWord { Word = newWord });
+            newWordInput.text = "";
+            UpdateWordsUI();
+        }
+    }
+
+    private void UpdateWordsUI()
+    {
+        // Clear existing word items
+        foreach (Transform child in wordsContainer)
+        {
+            Destroy(child.gameObject);
+        }
+
+        wordItems = new List<GameObject>();
+        foreach (var word in gameDataInstance.SearchWords)
+        {
+            var wordItemObj = Instantiate(wordPrefab, wordsContainer);
+            var wordItem = wordItemObj.GetComponent<WordItem>();
+            wordItem.SetWord(word.Word);
+            wordItem.deleteButton.onClick.AddListener(() => DeleteWord(word));
+            wordItems.Add(wordItemObj);
+        }
+    }
+
+    private void DeleteWord(BoardData.SearchingWord word)
+    {
+        gameDataInstance.SearchWords.Remove(word);
+        UpdateWordsUI();
+    }
+
     private void SaveBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, "BoardData.json");
+        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
         string json = JsonUtility.ToJson(gameDataInstance);
         File.WriteAllText(path, json);
         Debug.Log("Board data saved to " + path);
@@ -254,7 +308,7 @@ public class BoardDataEditorUI : MonoBehaviour
 
     private void LoadBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, "BoardData.json");
+        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
         if (File.Exists(path))
         {
             string json = File.ReadAllText(path);
@@ -263,6 +317,7 @@ public class BoardDataEditorUI : MonoBehaviour
             rowsInput.text = gameDataInstance.Rows.ToString();
             timeInput.text = gameDataInstance.timeInSeconds.ToString();
             UpdateBoardUI();
+            UpdateWordsUI();
             Debug.Log("Board data loaded from " + path);
         }
         else
@@ -273,7 +328,7 @@ public class BoardDataEditorUI : MonoBehaviour
 
     private void DeleteBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, "BoardData.json");
+        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
         if (File.Exists(path))
         {
             File.Delete(path);

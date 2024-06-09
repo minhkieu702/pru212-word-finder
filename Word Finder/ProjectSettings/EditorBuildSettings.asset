@@ -17,4 +17,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Settings.unity
     guid: 049eabe2870cc9547a2f45dba2963d88
+  - enabled: 1
+    path: Assets/Scenes/FindPuzzle.unity
+    guid: 64da5d0f5a6af2f40a7711ccc2bc5bd4
+  - enabled: 1
+    path: Assets/Scenes/PuzzleEditor.unity
+    guid: 58567829a475bbd41bf59f868396160c
   m_configObjects: {}
