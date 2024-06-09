@@ -1,7 +1,6 @@
 # Editor temporary files
 Temp/
 Library/
-*.meta
 
 # Packages
 Packages/
