@@ -7,6 +7,7 @@ using UnityEngine;
 using System.Threading.Tasks;
 using System;
 using Firebase.Database;
+using System.Linq;
 
 [SerializeField]
 [CreateAssetMenu]
@@ -18,7 +19,7 @@ public class LoginData : ScriptableObject
     public FirebaseAuth auth;
     public FirebaseUser User;
     public DatabaseReference DBreference;
-    
+
     //Login variables
     [Header("Login")]
     public string emailLoginField;
@@ -27,7 +28,12 @@ public class LoginData : ScriptableObject
 
     [Header("UserData")]
     public UserObject _user;
-    public List<UserObject> users;
+
+    [Header("Scoreboard")]
+    public List<UserObject> _scoreboard;
+
+    [Header("GameData")]
+    public Dictionary<string, List<LevelObject>> _gameData = new();
 
     async void Awake()
     {
@@ -50,8 +56,8 @@ public class LoginData : ScriptableObject
     {
         Debug.Log("Setting up Firebase Auth");
         //Set the authentication instance object
-        auth = FirebaseAuth.DefaultInstance;
-        DBreference = FirebaseDatabase.DefaultInstance.RootReference;
+        auth ??= FirebaseAuth.DefaultInstance;
+        DBreference ??= FirebaseDatabase.DefaultInstance.RootReference;
     }
 
     public async Task<UserObject> Login(string _email, string _password)
@@ -76,15 +82,12 @@ public class LoginData : ScriptableObject
             Debug.LogFormat($"User signed in successfully: {User.DisplayName} ({User.Email})");
             warningLoginText = "Logged In";
 
-            //Dictionary<string,int> keyValuesObject = await LoadUserData();
+            _gameData = await LoadGameData();
 
-            _user = new()
-            {
-                UserId = User.UserId,
-                Username = User.DisplayName,
-                ScoreLevel = await LoadUserData()
-            };
-            await LoadUserScoreBoard();
+            _scoreboard = await LoadScoreBoard();
+
+            _user = LoadUserData(_scoreboard);
+
             return _user;
         }
         catch (Exception)
@@ -97,47 +100,80 @@ public class LoginData : ScriptableObject
             return null;
         }
     }
-    private async Task InitialUserInfoToDatabase()
-    {
-        Task usernameTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(User.DisplayName);
-        Task scoreTask = DBreference.Child("users").Child(User.UserId).Child("level1").Child("score").SetValueAsync(0);
 
-        await Task.WhenAll(usernameTask, scoreTask);
-    }
-    private async Task<Dictionary<string, int>> LoadUserData()
+    private UserObject LoadUserData(List<UserObject> scoreboard)
     {
         try
         {
-            var DBTask = DBreference.Child("users").Child(User.UserId).GetValueAsync();
-            await DBTask;
-
-            Dictionary<string, int> levelscore = new Dictionary<string, int>();
-            if (DBTask.Result.Value == null)
+            var user = scoreboard.FirstOrDefault(user => user.UserId == User.UserId);
+            if (user == null)
             {
-                levelscore.Add("level1", 0);
-                await InitialUserInfoToDatabase();
-                warningLoginText = "init data success";
-            }
-            else
-            {
-                DataSnapshot snapshot = DBTask.Result;
-                foreach (DataSnapshot levelSnapshot in snapshot.Children)
+                InitialUserInfoToDatabase();
+                return new UserObject
                 {
-                    if (levelSnapshot.Key != "username")
+                    CategoryScore = new Dictionary<string, UserScoreObject>
                     {
-                        string levelName = levelSnapshot.Key;
-                        int score = int.Parse(levelSnapshot.Child("score").Value.ToString());
-                        levelscore.Add(levelName, score);
-                    }
-                }
-                warningLoginText = "get data success";
+                        {
+                            _gameData.Keys.First(),
+                            new UserScoreObject { LevelScore = new Dictionary<string, double> { { "1", 0} } }
+                        }
+                    },
+                    UserId = User.UserId,
+                    Username = User.DisplayName
+                };
             }
-            return levelscore;
+            return user;
         }
         catch (Exception)
         {
-            warningLoginText = "Failed";
-            return null;
+
+            throw;
+        }
+    }
+
+    private async void InitialUserInfoToDatabase()
+    {
+        Task usernameTask = DBreference.Child("users").Child(User.UserId).Child("username").SetValueAsync(User.DisplayName);
+        Task scoreTask = DBreference.Child("users").Child(User.UserId).Child(_gameData.Keys.First()).Child("1").Child("score").SetValueAsync(0);
+        await Task.WhenAll(usernameTask, scoreTask);
+    }
+
+    public async Task<List<UserObject>> LoadScoreBoard()
+    {
+        try
+        {
+            InitializeFirebase();
+            var dbTask = await DBreference.Child("users").GetValueAsync();
+            if (dbTask.Value == null)
+            {
+                return null;
+            }
+
+            var userObjects = dbTask.Children.Select(userid => new UserObject
+            {
+                UserId = userid.Key,
+                Username = userid.Child("username").Value.ToString(),
+                CategoryScore = userid.Children
+                    .Where(category => category.Key != "username")
+                    .ToDictionary(
+                        category => category.Key,
+                        category => new UserScoreObject
+                        {
+                            LevelScore = category.Children.ToDictionary(
+                                item => item.Key,
+                                item => double.Parse(item.Child("score").Value.ToString())
+                            ),
+                            ScoreOfCategory = 0
+                        }
+                    ),
+                Score = 0
+            }).ToList();
+
+            return userObjects;
+        }
+        catch (Exception ex)
+        {
+            throw new Exception($"Failed to load scoreboard: {ex.Message}");
         }
     }
 
@@ -146,45 +182,38 @@ public class LoginData : ScriptableObject
         auth.SignOut();
         Debug.LogFormat("User logged out in successfully");
     }
-    public async Task<List<UserObject>> LoadUserScoreBoard()
+
+    public async Task<Dictionary<string, List<LevelObject>>> LoadGameData()
     {
         try
         {
-            //Get data from users
-            var DBTask = DBreference.Child("users").GetValueAsync();
-            await DBTask;
-            List<UserObject> userObjects = new List<UserObject>();
-            if (DBTask.Result.Value == null)
+            var DBTask = await DBreference.Child("game").GetValueAsync();
+            if (DBTask.Value == null)
             {
                 return null;
             }
-            else
-            {
-                DataSnapshot userids = DBTask.Result;
-                foreach (DataSnapshot userid in userids.Children)
-                {
-                    UserObject user = new()
+            return DBTask.Children.ToDictionary(
+                cate => cate.Key,
+                cate => cate.Children.Select(
+                    level => new LevelObject
                     {
-                        UserId = userid.Key,
-                        Username = userid.Child("username").Value.ToString(),
-                    };
-
-                    foreach (DataSnapshot level in userid.Children)
-                    {
-                        if (level.Key != "username")
-                        {
-                            string levelName = level.Key;
-                            int score = int.Parse(level.Child("score").Value.ToString());
-                            user.ScoreLevel.Add(levelName, score);
-                        }
+                        Level = level.Key,
+                        Column = int.Parse(level.Child("grid").Child("column").Value.ToString()),
+                        Row = int.Parse(level.Child("grid").Child("row").Value.ToString()),
+                        Words = level.Child("word").Children.Select(
+                            word => new WordObject
+                            {
+                                Word = word.Key,
+                                endColumn = int.Parse(word.Child("endColumn").Value.ToString()),
+                                startColumn = int.Parse(word.Child("startColumn").Value.ToString()),
+                                endRow = int.Parse(word.Child("endRow").Value.ToString()),
+                                startRow = int.Parse(word.Child("startRow").Value.ToString()),
+                            }
+                            ).ToList()
                     }
-                    userObjects.Add(user);
-                }
-            }
-            return userObjects;
-
+            ).ToList());
         }
-        catch (System.Exception)
+        catch (Exception)
         {
 
             throw;
