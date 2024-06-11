@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bdb065698e0c62a46ac12d756bbf3456, type: 3}
+  m_Script: {fileID: 11500000, guid: b120b6b35550ddf44912b6de485a1fe3, type: 3}
   m_Name: Puzzle1
   m_EditorClassIdentifier: 
   timeInSeconds: 0
@@ -18,131 +18,122 @@ MonoBehaviour:
   Board:
   - Size: 10
     Row:
-    - S
-    - U
-    - M
-    - M
-    - E
-    - R
-    - O
-    - L
-    - R
-    - A
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - O
-    - L
-    - A
-    - U
-    - T
-    - U
-    - M
-    - N
-    - L
-    - N
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - I
-    - O
-    - S
-    - C
-    - H
-    - O
-    - O
-    - L
-    - L
-    - I
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - C
-    - E
-    - C
-    - V
-    - M
-    - K
-    - B
-    - C
-    - Y
-    - M
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - H
-    - O
-    - U
-    - N
-    - I
-    - T
-    - Y
-    - K
-    - M
-    - A
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - H
-    - M
-    - D
-    - D
-    - I
-    - N
-    - N
-    - E
-    - R
-    - L
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - F
-    - F
-    - J
-    - I
-    - Y
-    - O
-    - J
-    - M
-    - D
-    - G
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - B
-    - M
-    - T
-    - S
-    - N
-    - T
-    - E
-    - D
-    - C
-    - V
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - Y
-    - A
-    - X
-    - K
-    - S
-    - G
-    - T
-    - N
-    - O
-    - W
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
   - Size: 10
     Row:
-    - C
-    - E
-    - R
-    - I
-    - B
-    - L
-    - G
-    - H
-    - I
-    - G
-  SearchWords:
-  - Word: SUMMER
-  - Word: ANIMAL
-  - Word: AUTUMN
-  - Word: CAT
-  - Word: DOG
-  - Word: SCHOOL
-  - Word: UNITY
-  - Word: CODING
-  - Word: DINNER
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+    - ' '
+  SearchWords: []
