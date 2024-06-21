@@ -1,46 +1,14 @@
 {
   "Version": 1,
-  "WorkspaceRootPath": "E:\\PRU212\\pru212-word-finder\\Word Finder\\",
+  "WorkspaceRootPath": "D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|e:\\pru212\\pru212-word-finder\\word finder\\assets\\scripts\\scriptableobjects\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\gamedata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|d:\\now_semester\\pru212\\pru212-word-finder\\word finder\\assets\\scripts\\scriptableobjects\\auth\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\auth\\authmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|e:\\pru212\\pru212-word-finder\\word finder\\assets\\scripts\\scriptableobjects\\registerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\registerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|e:\\pru212\\pru212-word-finder\\word finder\\assets\\script\\scriptableobjects\\registerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\scriptableobjects\\registerdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A859939F-492D-0FF9-2F64-6C4EEC2F5E3B}|Assembly-CSharp-Editor.csproj|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\editor\\boarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A859939F-492D-0FF9-2F64-6C4EEC2F5E3B}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\script\\editor\\boarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A859939F-492D-0FF9-2F64-6C4EEC2F5E3B}|Assembly-CSharp-Editor.csproj|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\editor\\alphabetdatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A859939F-492D-0FF9-2F64-6C4EEC2F5E3B}|Assembly-CSharp-Editor.csproj|solutionrelative:assets\\script\\editor\\alphabetdatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\testing\\sampleboarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\testing\\sampleboarddatadrawer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\gameunity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\gameunity.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\scriptableobjects\\boarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\scriptableobjects\\boarddata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\scriptableobjects\\alphabetdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\scriptableobjects\\alphabetdata.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|E:\\PRU212\\pru212-word-finder\\Word Finder\\assets\\script\\scriptableobjects\\directionenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{A2FE74E1-B743-11D0-AE1A-00A0C90FFFC3}|\u003CMiscFiles\u003E|solutionrelative:assets\\script\\scriptableobjects\\directionenum.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\assets\\scripts\\scriptableobjects\\auth\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{FC563866-F537-4FDF-4A98-266E9A620E79}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\scriptableobjects\\auth\\uimanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -50,149 +18,37 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Bookmark",
               "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
             },
             {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:130:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
-            },
-            {
-              "$type": "Bookmark",
-              "Name": "ST:0:0:{e1b7d1f8-9b3c-49b1-8f4f-bfc63a88835d}"
-            },
-            {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "GameData.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\GameData.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\GameData.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\GameData.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\GameData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAsAAAABAAAA",
+              "Title": "AuthManager.cs",
+              "DocumentMoniker": "D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\Auth\\AuthManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\Auth\\AuthManager.cs",
+              "ToolTip": "D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\Auth\\AuthManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\Auth\\AuthManager.cs",
+              "ViewState": "AQIAAEsAAAAAAAAAAIAwwGsAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-28T01:57:30.872Z",
+              "WhenOpened": "2024-06-21T16:41:55.987Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "RegisterData.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\RegisterData.cs",
-              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\RegisterData.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\RegisterData.cs",
-              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\RegisterData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAtAAAA",
+              "Title": "UIManager.cs",
+              "DocumentMoniker": "D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\Auth\\UIManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\ScriptableObjects\\Auth\\UIManager.cs",
+              "ToolTip": "D:\\now_semester\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Scripts\\ScriptableObjects\\Auth\\UIManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\ScriptableObjects\\Auth\\UIManager.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAD0AAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-24T08:49:19.128Z",
+              "WhenOpened": "2024-06-21T16:11:36.867Z",
               "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "SampleBoardDataDrawer.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Testing\\SampleBoardDataDrawer.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Testing\\SampleBoardDataDrawer.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Testing\\SampleBoardDataDrawer.cs",
-              "RelativeToolTip": "Assets\\Script\\Testing\\SampleBoardDataDrawer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAMAAAARAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:46:22.94Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 2,
-              "Title": "RegisterData.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\RegisterData.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ScriptableObjects\\RegisterData.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\RegisterData.cs",
-              "RelativeToolTip": "Assets\\Script\\ScriptableObjects\\RegisterData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:38:21.245Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 3,
-              "Title": "BoardDataDrawer.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Editor\\BoardDataDrawer.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Editor\\BoardDataDrawer.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Editor\\BoardDataDrawer.cs",
-              "RelativeToolTip": "Assets\\Script\\Editor\\BoardDataDrawer.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAL4AAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:37:33.634Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "AlphabetDataDrawer.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Editor\\AlphabetDataDrawer.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\Editor\\AlphabetDataDrawer.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\Editor\\AlphabetDataDrawer.cs",
-              "RelativeToolTip": "Assets\\Script\\Editor\\AlphabetDataDrawer.cs",
-              "ViewState": "AQIAACEAAAAAAAAAAAAgwDYAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:36:44.499Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 6,
-              "Title": "GameUnity.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\GameUnity.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\GameUnity.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\GameUnity.cs",
-              "RelativeToolTip": "Assets\\Script\\GameUnity.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:36:20.865Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "BoardData.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\BoardData.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ScriptableObjects\\BoardData.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\BoardData.cs",
-              "RelativeToolTip": "Assets\\Script\\ScriptableObjects\\BoardData.cs",
-              "ViewState": "AQIAADAAAAAAAAAAAAAmwAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:35:52.884Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "AlphabetData.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\AlphabetData.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ScriptableObjects\\AlphabetData.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\AlphabetData.cs",
-              "RelativeToolTip": "Assets\\Script\\ScriptableObjects\\AlphabetData.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:34:01.533Z"
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "DirectionEnum.cs",
-              "DocumentMoniker": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\DirectionEnum.cs",
-              "RelativeDocumentMoniker": "Assets\\Script\\ScriptableObjects\\DirectionEnum.cs",
-              "ToolTip": "E:\\PRU212\\pru212-word-finder\\Word Finder\\Assets\\Script\\ScriptableObjects\\DirectionEnum.cs",
-              "RelativeToolTip": "Assets\\Script\\ScriptableObjects\\DirectionEnum.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-05-20T15:33:59.317Z"
             }
           ]
         }
