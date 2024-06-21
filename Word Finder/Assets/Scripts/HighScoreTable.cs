@@ -48,19 +48,7 @@ public class HighScoreTable : MonoBehaviour
             },
         };
 
-       
-
         highScoreEntryTransformList = new List<Transform>();
-        //ScoreboardData scoreboardData = new ScoreboardData();
-        //var datas = scoreboardData.LoadUsersScoreBoard().Result;
-        //foreach (var data in datas)
-        //{
-        //    HighScoreEntry entry = new HighScoreEntry();
-        //    entry.name = data.Username;
-        //    entry.score = data.CategoryScore["category1"].ScoreOfCategory;
-        //    CreateHighScoreEntryTransform(entry, entryContainer, highScoreEntryTransformList);
-        //}
-
         foreach (HighScoreEntry highScoreEntry in highScoreEntryList.OrderByDescending(x => x.score))
         {
             CreateHighScoreEntryTransform(highScoreEntry, entryContainer, highScoreEntryTransformList);

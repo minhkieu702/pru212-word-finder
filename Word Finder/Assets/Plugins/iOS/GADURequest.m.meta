@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4fbe74e8c91379a4292ce9da0677a1d7
+guid: c4db8fc900a9e47a39fb845334f73cd4
 PluginImporter:
   externalObjects: {}
   serializedVersion: 2
@@ -26,8 +26,7 @@ PluginImporter:
       iPhone: iOS
     second:
       enabled: 1
-      settings:
-        AddToEmbeddedBinaries: false
+      settings: {}
   userData: 
   assetBundleName: 
   assetBundleVariant: 

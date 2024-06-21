@@ -67,8 +67,8 @@
     <Compile Include="Assets\GoogleMobileAds\Editor\PListProcessor.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
     <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAds.Editor.asmdef" />
+    <None Include="Assets\GoogleMobileAds\Editor\GoogleMobileAdsDependencies.xml" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">

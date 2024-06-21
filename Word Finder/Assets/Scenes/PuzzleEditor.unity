@@ -1941,7 +1941,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 492269931}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d81e9aecce4986d479346b702c4b97e5, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f346a7bdc937f445bfbb10818a08ffd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &505133341
@@ -2970,7 +2970,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 258b685b80126f5489f22d59befbabea, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameDataInstance: {fileID: 11400000, guid: 823446d02de5ced43953c8f0accb9e54, type: 2}
+  gameDataInstance: {fileID: 11400000, guid: 86c7ef2c5b59d8e4d8beecd6945792f0, type: 2}
+  newBoardData: {fileID: 11400000, guid: 6ac7450442e41f74680fa00f41f9b278, type: 2}
   columnsInput: {fileID: 2037067136}
   rowsInput: {fileID: 1270556332}
   timeInput: {fileID: 1210574387}
@@ -2987,7 +2988,7 @@ MonoBehaviour:
   deleteButton: {fileID: 1409675920}
   cellOffset: 0
   topPosition: 4.55
-  fileName: 
+  fileName: NewBoardData
 --- !u!114 &1022289439
 MonoBehaviour:
   m_ObjectHideFlags: 0

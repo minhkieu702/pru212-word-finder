@@ -10,6 +10,7 @@ public class BoardDataEditorUI : MonoBehaviour
     public static BoardDataEditorUI Instance;
 
     public BoardData gameDataInstance;
+    public BoardData newBoardData;
 
     public TMP_InputField columnsInput;
     public TMP_InputField rowsInput;
@@ -55,12 +56,12 @@ public class BoardDataEditorUI : MonoBehaviour
         timeInput.onEndEdit.AddListener(delegate { UpdateGameTime(); });
         fileNameInput.onEndEdit.AddListener(delegate { UpdateFileName(); });
 
-        columnsInput.text = gameDataInstance.Columns.ToString();
-        rowsInput.text = gameDataInstance.Rows.ToString();
-        timeInput.text = gameDataInstance.timeInSeconds.ToString();
+        // columnsInput.text = gameDataInstance.Columns.ToString();
+        // rowsInput.text = gameDataInstance.Rows.ToString();
+        // timeInput.text = gameDataInstance.timeInSeconds.ToString();
         LoadBoardData();
-        UpdateBoardUI();
-        UpdateWordsUI();
+        // UpdateBoardUI();
+        // UpdateWordsUI();
     }
 
     private void UpdateFileName()
@@ -151,14 +152,16 @@ public class BoardDataEditorUI : MonoBehaviour
 
         startPosition.x = (midWidthPosition != 0) ? midWidthPosition * -1 : midWidthPosition;
         startPosition.y = midWidthHeight;
+        Debug.Log("Start Position: " + startPosition.x + ", " + startPosition.y);
 
-        return startPosition.x < GetHalfScreenWidth() * -1 || startPosition.y > topPosition;
+        return startPosition.x < GetHalfScreenWidth() * -0.5f || startPosition.y > topPosition;
     }
 
     private float GetHalfScreenWidth()
     {
         float height = Camera.main.orthographicSize * 2;
         float width = (1.7f * height) * Screen.width / Screen.height;
+        Debug.Log("Screen Width: " + width);
         return width / 2;
     }
 
@@ -313,17 +316,21 @@ public class BoardDataEditorUI : MonoBehaviour
         {
             string json = File.ReadAllText(path);
             JsonUtility.FromJsonOverwrite(json, gameDataInstance);
-            columnsInput.text = gameDataInstance.Columns.ToString();
-            rowsInput.text = gameDataInstance.Rows.ToString();
-            timeInput.text = gameDataInstance.timeInSeconds.ToString();
-            UpdateBoardUI();
-            UpdateWordsUI();
             Debug.Log("Board data loaded from " + path);
         }
         else
         {
+            // If no BoardData exists, load template
+            gameDataInstance = new BoardData();
+            gameDataInstance = newBoardData;
+
             Debug.LogError("No save file found at " + path);
         }
+        columnsInput.text = gameDataInstance.Columns.ToString();
+        rowsInput.text = gameDataInstance.Rows.ToString();
+        timeInput.text = gameDataInstance.timeInSeconds.ToString();
+        UpdateBoardUI();
+        UpdateWordsUI();
     }
 
     private void DeleteBoardData()

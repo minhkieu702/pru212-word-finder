@@ -61,7 +61,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\SettingsScene.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\WordObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\LevelObject.cs" />
     <Compile Include="Assets\Scripts\BoardDataEditorUI.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\CategoryObject.cs" />
     <Compile Include="Assets\Scripts\AdManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\LoginData.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\GameLevelData.cs" />
@@ -73,6 +76,7 @@
     <Compile Include="Assets\Scripts\SearchingWordsList.cs" />
     <Compile Include="Assets\Scripts\SearchingWord.cs" />
     <Compile Include="Assets\Scripts\GridCell.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\LoadGameData.cs" />
     <Compile Include="Assets\Scripts\SoundToggleButton.cs" />
     <Compile Include="Assets\Scripts\WordItem.cs" />
     <Compile Include="Assets\Scripts\WordChecker.cs" />
@@ -83,13 +87,15 @@
     <Compile Include="Assets\Scripts\GameOverPopup.cs" />
     <Compile Include="Assets\Scripts\GridSquare.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\AlphabetData.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\RegisterManager.cs" />
     <Compile Include="Assets\Scripts\SelectPuzzleButton.cs" />
     <Compile Include="Assets\Scripts\GameUtility.cs" />
     <Compile Include="Assets\Scripts\WinPopup.cs" />
     <Compile Include="Assets\Scripts\DataSaver.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\UserScoreObject.cs" />
     <Compile Include="Assets\Scripts\GameDataSelector.cs" />
-    <Compile Include="Assets\Scripts\ScriptableObjects\UserObject.cs" />
+    <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\UserObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

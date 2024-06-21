@@ -1,11 +1,5 @@
-<<<<<<< HEAD
-# Editor temporary files
-Temp/
-Library/
-=======
 # Created by https://www.toptal.com/developers/gitignore/api/unity,visualstudio,firebase
 # Edit at https://www.toptal.com/developers/gitignore?templates=unity,visualstudio,firebase
->>>>>>> main
 
 ### Firebase ###
 .idea
