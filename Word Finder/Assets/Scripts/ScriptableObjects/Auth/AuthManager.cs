@@ -1,17 +1,15 @@
-﻿using Firebase.Auth;
+using Firebase.Auth;
 using Firebase;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
-using System.Threading.Tasks;
-using System;
 using Firebase.Database;
 using System.Linq;
+using System;
 
-[SerializeField]
-[CreateAssetMenu]
-public class LoginData : ScriptableObject
+public class AuthManager : MonoBehaviour
 {
     //Firebase variables
     [Header("Firebase")]
@@ -20,11 +18,19 @@ public class LoginData : ScriptableObject
     public FirebaseUser User;
     public DatabaseReference DBreference;
 
+    //Register variables
+    [Header("Register")]
+    public TMP_InputField usernameRegisterField;
+    public TMP_InputField emailRegisterField;
+    public TMP_InputField passwordRegisterField;
+    public TMP_InputField passwordRegisterVerifyField;
+    public TMP_Text warningRegisterText;
+
     //Login variables
     [Header("Login")]
-    public string emailLoginField;
-    public string passwordLoginField;
-    public string warningLoginText;
+    public TMP_InputField emailLoginField;
+    public TMP_InputField passwordLoginField;
+    public TMP_Text warningLoginText;
 
     [Header("UserData")]
     public UserObject _user;
@@ -52,6 +58,7 @@ public class LoginData : ScriptableObject
             }
         });
     }
+
     private void InitializeFirebase()
     {
         Debug.Log("Setting up Firebase Auth");
@@ -59,48 +66,132 @@ public class LoginData : ScriptableObject
         auth ??= FirebaseAuth.DefaultInstance;
         DBreference ??= FirebaseDatabase.DefaultInstance.RootReference;
     }
-
-    public async Task<UserObject> Login(string _email, string _password)
+    public void RegisterButton()
     {
-        InitializeFirebase();
-        if (_email.Trim() == "" || _password.Trim() == "")
+        Register(emailRegisterField.text, passwordRegisterField.text, usernameRegisterField.text);
+    }
+    public void LoginButton()
+    {
+        Login(emailLoginField.text, passwordLoginField.text);
+    }
+    private async void Register(string _email, string _password, string _username)
+    {
+        if (string.IsNullOrEmpty(_username))
         {
-            warningLoginText = "Please input all fields.";
-            return null;
+            //If the username field is blank show a warning
+            warningRegisterText.text = "Missing Username";
+            return;
         }
+
+        if (passwordRegisterField.text != passwordRegisterVerifyField.text)
+        {
+            //If the password does not match show a warning
+            warningRegisterText.text = "Password Does Not Match!";
+            return;
+        }
+
         try
         {
-            // Call the Firebase auth signin function passing the email and password
-            Task<AuthResult> LoginTask = auth.SignInWithEmailAndPasswordAsync(_email, _password);
+            // Call the Firebase auth create user function passing the email and password
+            AuthResult registerResult = await auth.CreateUserWithEmailAndPasswordAsync(_email, _password);
+            User = registerResult.User;
 
-            // Wait until the task completes
-            AuthResult result = await LoginTask;
+            if (User != null)
+            {
+                // Create a user profile and set the username
+                UserProfile profile = new UserProfile { DisplayName = _username };
 
-            // User is now logged in
-            // Now get the result
-            User = result.User;
-            Debug.LogFormat($"User signed in successfully: {User.DisplayName} ({User.Email})");
-            warningLoginText = "Logged In";
-
-            _gameData = await LoadGameData();
-
-            _scoreboard = await LoadScoreBoard();
-
-            _user = LoadUserData(_scoreboard);
-
-            return _user;
+                // Call the Firebase auth update user profile function passing the profile with the username
+                await User.UpdateUserProfileAsync(profile);
+                warningRegisterText.text = User.DisplayName + " was created. Let's login and play!!!";
+                // Username is now set, now return to login screen
+                if (UIManager.instance != null)
+                {
+                    UIManager.instance.LoginScreen();
+                    warningRegisterText.text = "";
+                }
+            }
         }
-        catch (Exception)
+        catch (FirebaseException firebaseEx)
         {
-            // Handle FirebaseAuthException
-            Debug.LogFormat($"User signed in fail");
-            //FirebaseException exception = ex as FirebaseException;
-            //var errorCode = (AuthError)exception.ErrorCode;
-            warningLoginText = "Login Failed! Please Check Again.";
-            return null;
+            AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+            string message = "Register Failed!";
+            switch (errorCode)
+            {
+                case AuthError.MissingEmail:
+                    message = "Missing Email";
+                    break;
+                case AuthError.MissingPassword:
+                    message = "Missing Password";
+                    break;
+                case AuthError.WeakPassword:
+                    message = "Weak Password";
+                    break;
+                case AuthError.EmailAlreadyInUse:
+                    message = "Email Already In Use";
+                    break;
+                default:
+                    message = "Unknown error occurred";
+                    break;
+            }
+            Debug.LogWarning($"Failed to register with {firebaseEx}");
+            warningRegisterText.text = message;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Unexpected error: {ex}");
+            warningRegisterText.text = "An unexpected error occurred. Please try again.";
         }
     }
 
+    private async void Login(string _email, string _password)
+    {
+        //Call the Firebase auth signin function passing the email and password
+        try
+        {
+            AuthResult authResult = await auth.SignInWithEmailAndPasswordAsync(_email, _password);
+            User = authResult.User;
+            Debug.LogFormat("User signed in successfully: {0} ({1})", User.DisplayName, User.Email);
+            warningLoginText.text = "Logged In";
+
+            _gameData = await LoadGameData();
+            _scoreboard = await LoadScoreBoard();
+            _user = LoadUserData(_scoreboard);
+        }
+        catch (FirebaseException firebaseEx)
+        {
+            AuthError errorCode = (AuthError)firebaseEx.ErrorCode;
+            string message = "Login Failed!";
+            switch (errorCode)
+            {
+                case AuthError.MissingEmail:
+                    message = "Missing Email";
+                    break;
+                case AuthError.MissingPassword:
+                    message = "Missing Password";
+                    break;
+                case AuthError.WrongPassword:
+                    message = "Wrong Password";
+                    break;
+                case AuthError.InvalidEmail:
+                    message = "Invalid Email";
+                    break;
+                case AuthError.UserNotFound:
+                    message = "Account does not exist";
+                    break;
+                default:
+                    message = "Unknown error occurred";
+                    break;
+            }
+            Debug.LogWarning($"Failed to login with {firebaseEx}");
+            warningLoginText.text = message;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"Unexpected error: {ex}");
+            warningLoginText.text = "An unexpected error occurred. Please try again.";
+        }
+    }
     private UserObject LoadUserData(List<UserObject> scoreboard)
     {
         try
@@ -219,5 +310,4 @@ public class LoginData : ScriptableObject
             throw;
         }
     }
-
 }

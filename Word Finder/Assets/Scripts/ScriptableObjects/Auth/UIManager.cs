@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    public static UIManager instance;
+    public static UIManager instance = new UIManager();
 
     //Screen object variables
     public GameObject loginUI;
