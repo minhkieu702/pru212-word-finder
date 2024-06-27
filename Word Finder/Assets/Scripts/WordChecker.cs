@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -188,6 +189,13 @@ public class WordChecker : MonoBehaviour
         bool loadNextCategory = false;
         if (currentGameData.selectedBoardData.SearchWords.Count == _completedWords)
         {
+            // Skip if in puzzle editor
+            if (currentGameData.selectedCategoryName == "Test")
+            {
+                GameEvents.BoardCompletedMethod();
+                return;
+            }
+
             // Save current level progress
             var categoryName = currentGameData.selectedCategoryName;
             var currentBoardIndex = DataSaver.ReadCategoryCurrentIndexValues(categoryName);
@@ -216,9 +224,9 @@ public class WordChecker : MonoBehaviour
                 currentBoardIndex += 1;
             }
             DataSaver.SaveCategoryData(categoryName, currentBoardIndex);
-            
+
             // Unclock Next Category
-            if(currentBoardIndex >= currentLevelSize)
+            if (currentBoardIndex >= currentLevelSize)
             {
                 currentCategoryIndex++;
                 if (currentCategoryIndex <= gameLevelData.data.Count)

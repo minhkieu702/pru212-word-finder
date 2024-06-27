@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\GridCell.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\LoadGameData.cs" />
     <Compile Include="Assets\Scripts\SoundToggleButton.cs" />
+    <Compile Include="Assets\Scripts\FindPuzzle.cs" />
     <Compile Include="Assets\Scripts\WordItem.cs" />
     <Compile Include="Assets\Scripts\WordChecker.cs" />
     <Compile Include="Assets\Scripts\UnlockLevelPopup.cs" />
@@ -92,10 +93,13 @@
     <Compile Include="Assets\Scripts\GameUtility.cs" />
     <Compile Include="Assets\Scripts\WinPopup.cs" />
     <Compile Include="Assets\Scripts\DataSaver.cs" />
+    <Compile Include="Assets\Scripts\PuzzleSaveManager.cs" />
     <Compile Include="Assets\Scripts\SoundManager.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\UserScoreObject.cs" />
     <Compile Include="Assets\Scripts\GameDataSelector.cs" />
     <Compile Include="Assets\Scripts\ScriptableObjects\ObjectInGame\UserObject.cs" />
+    <Compile Include="Assets\Scripts\WinPopupTest.cs" />
+    <Compile Include="Assets\Scripts\PuzzleBox.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />

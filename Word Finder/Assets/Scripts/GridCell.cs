@@ -25,10 +25,20 @@ public class GridCell : MonoBehaviour
         if (value.Length > 1)
         {
             value = value.Substring(0, 1);
-            inputField.text = value;
         }
 
+        // Check for non-letters
+        if (!char.IsLetter(value[0]))
+        {
+            string letters = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+            int index = Random.Range(0, letters.Length);
+            value = letters[index].ToString();
+        }
+
+        value = value.ToUpper();
+        inputField.text = value;
+
         // Notify the BoardDataEditorUI to update the corresponding cell in BoardData
-        BoardDataEditorUI.Instance.UpdateCellValue(column, row, value.ToUpper());
+        BoardDataEditorUI.Instance.UpdateCellValue(column, row, value);
     }
 }

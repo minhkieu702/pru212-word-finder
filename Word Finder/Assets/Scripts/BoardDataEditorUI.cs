@@ -10,7 +10,6 @@ public class BoardDataEditorUI : MonoBehaviour
     public static BoardDataEditorUI Instance;
 
     public BoardData gameDataInstance;
-    public BoardData newBoardData;
 
     public TMP_InputField columnsInput;
     public TMP_InputField rowsInput;
@@ -59,9 +58,10 @@ public class BoardDataEditorUI : MonoBehaviour
         // columnsInput.text = gameDataInstance.Columns.ToString();
         // rowsInput.text = gameDataInstance.Rows.ToString();
         // timeInput.text = gameDataInstance.timeInSeconds.ToString();
-        LoadBoardData();
-        // UpdateBoardUI();
-        // UpdateWordsUI();
+        // LoadBoardData();
+        UpdateBoardUI();
+        UpdateWordsUI();
+        UpdateBasicValue();
     }
 
     private void UpdateFileName()
@@ -152,7 +152,7 @@ public class BoardDataEditorUI : MonoBehaviour
 
         startPosition.x = (midWidthPosition != 0) ? midWidthPosition * -1 : midWidthPosition;
         startPosition.y = midWidthHeight;
-        Debug.Log("Start Position: " + startPosition.x + ", " + startPosition.y);
+        //Debug.Log("Start Position: " + startPosition.x + ", " + startPosition.y);
 
         return startPosition.x < GetHalfScreenWidth() * -0.5f || startPosition.y > topPosition;
     }
@@ -161,7 +161,7 @@ public class BoardDataEditorUI : MonoBehaviour
     {
         float height = Camera.main.orthographicSize * 2;
         float width = (1.7f * height) * Screen.width / Screen.height;
-        Debug.Log("Screen Width: " + width);
+        //Debug.Log("Screen Width: " + width);
         return width / 2;
     }
 
@@ -301,49 +301,33 @@ public class BoardDataEditorUI : MonoBehaviour
         UpdateWordsUI();
     }
 
+    private void UpdateBasicValue()
+    {
+        columnsInput.text = gameDataInstance.Columns.ToString();
+        rowsInput.text = gameDataInstance.Rows.ToString();
+        timeInput.text = gameDataInstance.timeInSeconds.ToString();
+    }
+
     private void SaveBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
-        string json = JsonUtility.ToJson(gameDataInstance);
-        File.WriteAllText(path, json);
-        Debug.Log("Board data saved to " + path);
+        PuzzleSaveManager.Instance.SaveFileLocal(fileName, gameDataInstance);
     }
 
     private void LoadBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
-        if (File.Exists(path))
-        {
-            string json = File.ReadAllText(path);
-            JsonUtility.FromJsonOverwrite(json, gameDataInstance);
-            Debug.Log("Board data loaded from " + path);
-        }
-        else
-        {
-            // If no BoardData exists, load template
-            gameDataInstance = new BoardData();
-            gameDataInstance = newBoardData;
-
-            Debug.LogError("No save file found at " + path);
-        }
-        columnsInput.text = gameDataInstance.Columns.ToString();
-        rowsInput.text = gameDataInstance.Rows.ToString();
-        timeInput.text = gameDataInstance.timeInSeconds.ToString();
+        PuzzleSaveManager.Instance.LoadFileLocal(fileName, gameDataInstance);
+        UpdateBasicValue();
         UpdateBoardUI();
         UpdateWordsUI();
     }
 
     private void DeleteBoardData()
     {
-        string path = Path.Combine(Application.persistentDataPath, (fileName + ".json"));
-        if (File.Exists(path))
-        {
-            File.Delete(path);
-            Debug.Log("Board data deleted from " + path);
-        }
-        else
-        {
-            Debug.LogError("No save file found at " + path);
-        }
+        PuzzleSaveManager.Instance.DeleteFileLocal(fileName);
+        gameDataInstance.CreateNewBoard();
+        gameDataInstance.SearchWords.Clear();
+        UpdateBasicValue();
+        UpdateBoardUI();
+        UpdateWordsUI();
     }
 }

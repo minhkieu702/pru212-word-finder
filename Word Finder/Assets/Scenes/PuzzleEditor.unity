@@ -2271,7 +2271,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 628822950}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 492269935}
+        m_TargetAssemblyTypeName: GameUtility, Assembly-CSharp
+        m_MethodName: LoadScene
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: TestPuzzle
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &628822950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2971,7 +2983,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameDataInstance: {fileID: 11400000, guid: 86c7ef2c5b59d8e4d8beecd6945792f0, type: 2}
-  newBoardData: {fileID: 11400000, guid: 6ac7450442e41f74680fa00f41f9b278, type: 2}
   columnsInput: {fileID: 2037067136}
   rowsInput: {fileID: 1270556332}
   timeInput: {fileID: 1210574387}
